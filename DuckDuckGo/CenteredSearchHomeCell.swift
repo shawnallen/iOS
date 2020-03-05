@@ -98,6 +98,10 @@ class CenteredSearchHomeCell: UICollectionViewCell {
         searchBackground.isAccessibilityElement = searchHeaderTransition < 1.0
     }
     
+    @IBAction func startVoiceSearch() {
+        
+    }
+    
 }
 
 extension CenteredSearchHomeCell: Themable {
