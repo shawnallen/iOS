@@ -48,6 +48,13 @@ class VoiceSearchViewController: UIViewController {
     }
     
     @IBAction func cancel() {
+        if !Thread.current.isMainThread {
+            DispatchQueue.main.async {
+                self.cancel()
+            }
+            return
+        }
+        
         dismiss(animated: true)
         stopListening()
     }
@@ -103,6 +110,7 @@ class VoiceSearchViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.label.text = result?.bestTranscription.formattedString
                     self.button.isEnabled = true
+                    self.submitIfDuckIt()
                 }
                 isFinal = (result?.isFinal)!
             }
@@ -122,11 +130,20 @@ class VoiceSearchViewController: UIViewController {
         do {
             try audioEngine.start()
         } catch {
-            print("audioEngine couldn't start because of an error.")
+            cancel()
+            return
         }
         
         DispatchQueue.main.async {
             self.label.text = "Qwack away!"
+        }
+    }
+    
+    private func submitIfDuckIt() {
+        guard let text = text else { return }
+        if text.hasSuffix("duck it") && text.count > 7 {
+            label.text = text.dropSuffix(suffix: "duck it")
+            duckIt()
         }
     }
     

@@ -167,7 +167,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allows you to share your location</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Allows you to share recordings</string>
+	<string>Your microphone will be used to record your speech when you press the &quot;Start Recording&quot; button.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Allows you to save images to your device</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -216,9 +216,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Your microphone will be used to record your speech when you press the "Start Recording" button.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
-	<string>Speech recognition will be used to determine which words you speak into this device&apos;s microphone.</string>
+	<string>Speech recognition will be used to let you speak a search query.</string>
 </dict>
 </plist>
