@@ -280,6 +280,7 @@
                         <segue destination="0sP-vt-2ZT" kind="presentation" identifier="Bookmarks" id="jTg-q6-spe"/>
                         <segue destination="9Vl-Oh-arA" kind="presentation" identifier="Onboarding" animates="NO" modalPresentationStyle="overFullScreen" id="lRm-1E-WkW"/>
                         <segue destination="rGZ-0A-HjK" kind="presentation" identifier="Onboarding-iPad" animates="NO" modalPresentationStyle="overFullScreen" id="Wtv-32-dHC"/>
+                        <segue destination="b1S-8o-lmM" kind="presentation" identifier="voice" id="FIA-S5-LoV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QN-Mc-SXu" sceneMemberID="firstResponder"/>
@@ -317,6 +318,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymt-iC-XRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="826" y="-7"/>
+        </scene>
+        <!--Voice-->
+        <scene sceneID="9YE-3D-kFc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Voice" id="b1S-8o-lmM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nRU-Zx-E5F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="916" y="108"/>
         </scene>
         <!--Settings-->
         <scene sceneID="bSV-mo-fgW">

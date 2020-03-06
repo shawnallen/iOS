@@ -199,6 +199,11 @@ class MainViewController: UIViewController {
             controller.delegate = self
             return
         }
+        
+        if let controller = segue.destination as? VoiceSearchViewController {
+            controller.delegate = self
+            return
+        }
 
         if let controller = segue.destination as? TabSwitcherViewController {
             controller.transitioningDelegate = blurTransition
@@ -822,6 +827,10 @@ extension MainViewController: HomeControllerDelegate {
         launchSettings()
     }
     
+    func startVoiceSearch(_ home: HomeViewController) {
+        performSegue(withIdentifier: "voice", sender: self)
+    }
+    
 }
 
 extension MainViewController: TabDelegate {
@@ -1144,6 +1153,21 @@ extension MainViewController: OnboardingDelegate {
     func markOnboardingSeen() {
         var settings = DefaultTutorialSettings()
         settings.hasSeenOnboarding = true
+    }
+    
+}
+
+extension MainViewController: VoiceSearchDelegate {
+    
+    func voiceSearchComplete(_ controller: VoiceSearchViewController) {
+        guard let query = controller.text else {
+            controller.dismiss(animated: true)
+            return
+        }
+        
+        controller.dismiss(animated: true) {
+            self.loadQuery(query)
+        }
     }
     
 }

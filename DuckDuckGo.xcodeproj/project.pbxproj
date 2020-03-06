@@ -216,6 +216,7 @@
 		85AE6690209724120014CF04 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AE668F209724120014CF04 /* NotificationView.swift */; };
 		85B2BF642411313600217A3A /* VoiceSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2BF632411313600217A3A /* VoiceSearchViewController.swift */; };
 		85B2BF66241133E000217A3A /* speech.json in Resources */ = {isa = PBXBuildFile; fileRef = 85B2BF65241133DF00217A3A /* speech.json */; };
+		85B6AB0524129C3B007C1743 /* Voice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85B6AB0424129C3B007C1743 /* Voice.storyboard */; };
 		85B718F51FD071E50031A14F /* HTTPSUpgrade.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85B718F31FD071E50031A14F /* HTTPSUpgrade.xcdatamodeld */; };
 		85B9CB8521AEBD92009001F1 /* NavigationSearchHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B9CB8421AEBD92009001F1 /* NavigationSearchHomeCell.swift */; };
 		85B9CB8721AEBDB7009001F1 /* CenteredSearchHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B9CB8621AEBDB7009001F1 /* CenteredSearchHomeCell.swift */; };
@@ -852,6 +853,7 @@
 		85B547071FE852CE0008E1E5 /* abp-filter-parser-packed.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "abp-filter-parser-packed.js"; path = "submodules/ios-js-support/src/abp-filter-parser-packed.js"; sourceTree = SOURCE_ROOT; };
 		85B547081FE852CE0008E1E5 /* abp-filter-parser-packed-es2015.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "abp-filter-parser-packed-es2015.js"; path = "submodules/ios-js-support/src/abp-filter-parser-packed-es2015.js"; sourceTree = SOURCE_ROOT; };
 		85B547091FE852CE0008E1E5 /* bloom-filter-packed-es2015.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "bloom-filter-packed-es2015.js"; path = "submodules/ios-js-support/src/bloom-filter-packed-es2015.js"; sourceTree = SOURCE_ROOT; };
+		85B6AB0424129C3B007C1743 /* Voice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Voice.storyboard; sourceTree = "<group>"; };
 		85B718F41FD071E50031A14F /* HTTPSUpgrade.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HTTPSUpgrade.xcdatamodel; sourceTree = "<group>"; };
 		85B9CB8421AEBD92009001F1 /* NavigationSearchHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSearchHomeCell.swift; sourceTree = "<group>"; };
 		85B9CB8621AEBDB7009001F1 /* CenteredSearchHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredSearchHomeCell.swift; sourceTree = "<group>"; };
@@ -2716,6 +2718,7 @@
 				9865DFF822A8220D00D27829 /* FavoritesOverlay.swift */,
 				988F3DD2237DE8D900AEE34C /* ForgetDataAlert.swift */,
 				8540BD5323D8D5080057FDD2 /* PreserveLoginsAlert.swift */,
+				85B6AB0424129C3B007C1743 /* Voice.storyboard */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -3341,6 +3344,7 @@
 				AA4D6AF723DF0312007E8790 /* AppIconRed60x60@2x.png in Resources */,
 				AA4D6AE923DE4D33007E8790 /* AppIconGreen29x29@3x.png in Resources */,
 				83A23D6320DC330000051F39 /* Feedback.storyboard in Resources */,
+				85B6AB0524129C3B007C1743 /* Voice.storyboard in Resources */,
 				85AB24A81FA7449D00896A5F /* PrivacyProtection.storyboard in Resources */,
 				850819DD1FDDE1A8006561FD /* SettingsTutorialAssets.xcassets in Resources */,
 				AA4D6AA723DE4CC4007E8790 /* AppIconBlue60x60@2x.png in Resources */,

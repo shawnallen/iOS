@@ -8,9 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="proximanova-bold.otf">
-            <string>ProximaNova-Bold</string>
-        </array>
         <array key="proximanova-semibold.otf">
             <string>ProximaNova-Semibold</string>
         </array>
@@ -114,7 +111,7 @@
                                                     <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" backgroundImage="mic.circle.fill" catalog="system"/>
                                                     <connections>
-                                                        <segue destination="amO-Xa-X4q" kind="presentation" modalPresentationStyle="fullScreen" id="QNp-yI-3tV"/>
+                                                        <action selector="startVoiceSearch" destination="LJ1-RN-ckE" eventType="touchUpInside" id="ulj-qp-IYg"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -162,7 +159,7 @@
                                                     <color key="tintColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" backgroundImage="mic.circle.fill" catalog="system"/>
                                                     <connections>
-                                                        <segue destination="amO-Xa-X4q" kind="presentation" modalPresentationStyle="fullScreen" id="tdI-EN-3q1"/>
+                                                        <action selector="startVoiceSearch" destination="LJ1-RN-ckE" eventType="touchUpInside" id="e6R-ex-UvN"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -252,81 +249,6 @@
             </objects>
             <point key="canvasLocation" x="1181.1594202898552" y="-332.14285714285711"/>
         </scene>
-        <!--Voice Search View Controller-->
-        <scene sceneID="2OT-xh-epF">
-            <objects>
-                <viewController id="amO-Xa-X4q" customClass="VoiceSearchViewController" customModule="DuckDuckGo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xqX-N8-wFk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EID-Ao-zBW">
-                                <rect key="frame" x="342" y="743" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <action selector="cancel" destination="amO-Xa-X4q" eventType="primaryActionTriggered" id="6wd-XA-KJv"/>
-                                </connections>
-                            </button>
-                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DoB-2X-Vgr">
-                                <rect key="frame" x="24" y="789" width="366" height="54"/>
-                                <color key="backgroundColor" red="0.40000000000000002" green="0.68627450980000004" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="54" id="8Gn-NW-oYj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="16"/>
-                                <state key="normal" title="Duck It!">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="duckIt" destination="amO-Xa-X4q" eventType="touchUpInside" id="ojK-Wx-Lcz"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdO-4Y-Gtl">
-                                <rect key="frame" x="32" y="114" width="350" height="24"/>
-                                <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDQ-7p-mov">
-                                <rect key="frame" x="32" y="185" width="350" height="128"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="eiH-ue-C3o"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="EID-Ao-zBW" firstAttribute="trailing" secondItem="DoB-2X-Vgr" secondAttribute="trailing" id="5Lx-MN-ehP"/>
-                            <constraint firstItem="DoB-2X-Vgr" firstAttribute="top" secondItem="EID-Ao-zBW" secondAttribute="bottom" constant="16" id="BIt-p2-8BB"/>
-                            <constraint firstItem="jDQ-7p-mov" firstAttribute="top" secondItem="cdO-4Y-Gtl" secondAttribute="bottom" constant="47" id="H8e-nc-4kJ"/>
-                            <constraint firstItem="jDQ-7p-mov" firstAttribute="width" secondItem="xqX-N8-wFk" secondAttribute="width" constant="-64" id="OkU-bY-2dG"/>
-                            <constraint firstItem="cdO-4Y-Gtl" firstAttribute="width" secondItem="xqX-N8-wFk" secondAttribute="width" constant="-64" id="RF5-AA-Vnl"/>
-                            <constraint firstItem="xoZ-td-38i" firstAttribute="bottom" secondItem="DoB-2X-Vgr" secondAttribute="bottom" constant="19" id="SEx-yq-aCG"/>
-                            <constraint firstItem="DoB-2X-Vgr" firstAttribute="width" secondItem="xqX-N8-wFk" secondAttribute="width" constant="-48" id="Sv6-eF-f1d"/>
-                            <constraint firstItem="DoB-2X-Vgr" firstAttribute="centerX" secondItem="xoZ-td-38i" secondAttribute="centerX" id="aEi-ap-q6w"/>
-                            <constraint firstItem="cdO-4Y-Gtl" firstAttribute="top" secondItem="xoZ-td-38i" secondAttribute="top" constant="70" id="iZs-8w-WdY"/>
-                            <constraint firstItem="cdO-4Y-Gtl" firstAttribute="centerX" secondItem="xoZ-td-38i" secondAttribute="centerX" id="lZm-74-FlR"/>
-                            <constraint firstItem="jDQ-7p-mov" firstAttribute="centerX" secondItem="xoZ-td-38i" secondAttribute="centerX" id="nyl-xY-gXF"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="xoZ-td-38i"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="WG9-oG-zdE"/>
-                    <connections>
-                        <outlet property="animContainer" destination="jDQ-7p-mov" id="cad-es-nrd"/>
-                        <outlet property="button" destination="DoB-2X-Vgr" id="Dd4-kP-6ne"/>
-                        <outlet property="label" destination="cdO-4Y-Gtl" id="26D-nx-C0x"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xq5-sM-IY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2095.6521739130435" y="-332.14285714285711"/>
-        </scene>
     </scenes>
     <resources>
         <image name="LogoDarkText" width="160" height="128"/>
@@ -334,7 +256,4 @@
         <image name="SuggestLoupe" width="24" height="24"/>
         <image name="mic.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="tdI-EN-3q1"/>
-    </inferredMetricsTieBreakers>
 </document>

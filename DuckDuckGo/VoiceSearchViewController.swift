@@ -18,9 +18,8 @@ protocol VoiceSearchDelegate: NSObjectProtocol {
 
 class VoiceSearchViewController: UIViewController {
     
-    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var animContainer: UIView!
+    @IBOutlet weak var table: UITableView!
     
     weak var delegate: VoiceSearchDelegate?
         
@@ -28,6 +27,10 @@ class VoiceSearchViewController: UIViewController {
         return label.text
     }
     
+    var lastRequest: AutocompleteRequest?
+    var suggestions = [Suggestion]()
+    
+    private let parser = AutocompleteParser()
     private let speechRecognizer = SFSpeechRecognizer()
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
@@ -36,13 +39,17 @@ class VoiceSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.blur(style: .regular)
+     
+        table.dataSource = self
+        table.delegate = self
+        
         let lottie = LOTAnimationView(name: "speech")
         lottie.loopAnimation = true
         lottie.play()
         view.insertSubview(lottie, at: 0)
         
         lottie.center = view.center
-        button.isEnabled = false
 
         request()
     }
@@ -109,7 +116,7 @@ class VoiceSearchViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.label.text = result?.bestTranscription.formattedString
-                    self.button.isEnabled = true
+                    self.updateSuggestions()
                     self.submitIfDuckIt()
                 }
                 isFinal = (result?.isFinal)!
@@ -152,6 +159,33 @@ class VoiceSearchViewController: UIViewController {
         self.audioEngine.stop()
         self.recognitionRequest = nil
         self.recognitionTask = nil
+    }
+ 
+    private func updateSuggestions() {
+        guard let query = self.label.text else { return }
+        lastRequest = AutocompleteRequest(query: query, parser: parser)
+        lastRequest?.execute { suggestions, error in
+            self.suggestions = suggestions ?? []
+            self.table.reloadData()
+        }
+    }
+    
+}
+
+extension VoiceSearchViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return suggestions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ac", for: indexPath)
+        cell.textLabel?.text = suggestions[indexPath.row].suggestion
+        return cell
     }
     
 }

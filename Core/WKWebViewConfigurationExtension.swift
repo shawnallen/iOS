@@ -70,7 +70,18 @@ extension WKWebViewConfiguration {
               "type": "css-display-none",
               "selector": ".ddg-extension-hide"
             }
-          }
+          },
+            {
+              "trigger": {
+                "url-filter": ".*",
+                "if-domain": ["*duckduckgo.com"]
+              },
+              "action": {
+                "type": "css-display-none",
+                "selector": ".ytp-chrome-top.ytp-show-cards-title"
+              }
+            }
+
         ]
         """
         store.compileContentRuleList(forIdentifier: "hide-extension-css", encodedContentRuleList: rules) { rulesList, _ in

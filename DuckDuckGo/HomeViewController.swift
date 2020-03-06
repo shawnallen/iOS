@@ -95,6 +95,10 @@ class HomeViewController: UIViewController {
             self.collectionView.viewDidTransition(to: size)
         })
     }
+    
+    @IBAction func startVoiceSearch() {
+        delegate?.startVoiceSearch(self)
+    }
 
     func refresh() {
         collectionView.reloadData()
@@ -125,14 +129,6 @@ class HomeViewController: UIViewController {
     
     func prepareForPresentation() {
         installHomeScreenTips()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let controller = segue.destination as? VoiceSearchViewController {
-            controller.delegate = self
-            return
-        }
-        super.prepare(for: segue, sender: sender)
     }
 
     @IBAction func hideKeyboard() {
@@ -194,19 +190,4 @@ extension HomeViewController: Themable {
         view.backgroundColor = theme.backgroundColor
         settingsButton.tintColor = theme.barTintColor        
     }
-}
-
-extension HomeViewController: VoiceSearchDelegate {
-    
-    func voiceSearchComplete(_ controller: VoiceSearchViewController) {
-        guard let query = controller.text else {
-            controller.dismiss(animated: true)
-            return
-        }
-        
-        controller.dismiss(animated: true) {
-            self.load(url: AppUrls().url(forQuery: query))
-        }
-    }
-    
 }
