@@ -164,7 +164,7 @@ class VoiceSearchViewController: UIViewController {
     private func updateSuggestions() {
         guard let query = self.label.text else { return }
         lastRequest = AutocompleteRequest(query: query, parser: parser)
-        lastRequest?.execute { suggestions, error in
+        lastRequest?.execute { suggestions, _ in
             self.suggestions = suggestions ?? []
             self.table.reloadData()
         }
