@@ -55,6 +55,8 @@ class TabViewController: UIViewController {
     var findInPage: FindInPage?
     
     let progressWorker = WebProgressWorker()
+    
+    private var refreshCounter = 0
 
     private(set) var webView: WKWebView!
     private lazy var appRatingPrompt: AppRatingPrompt = AppRatingPrompt()
@@ -1108,6 +1110,20 @@ extension TabViewController: UIGestureRecognizerDelegate {
     }
 
     func refresh() {
+        guard refreshCounter < 1 else {
+            os_log("Performing a hard-refresh", log: generalLog, type: .debug)
+            refreshCounter = 0
+
+            if let url = self.url {
+                delegate?.tab(self, didRequestNewTabForUrl: url, openedByPage: false)
+                DispatchQueue.main.async {
+                    self.delegate?.tabDidRequestClose(self)
+                }
+            }
+            return
+        }
+        refreshCounter += 1
+        
         if isError {
             if let url = URL(string: chromeDelegate?.omniBar.textField.text ?? "") {
                 load(url: url)
