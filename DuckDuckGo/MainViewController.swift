@@ -88,6 +88,22 @@ class MainViewController: UIViewController {
 
     fileprivate lazy var blurTransition = CompositeTransition(presenting: BlurAnimatedTransitioning(), dismissing: DissolveAnimatedTransitioning())
 
+    var animator: UIDynamicAnimator!
+    var gravity: UIGravityBehavior!
+    var collision: UICollisionBehavior!
+    
+    func dropOff(view: UIView) {
+        
+        let frame = view.convert(view.bounds, to: nil)
+        if let snapshot = view.snapshotView(afterScreenUpdates: false) {
+            snapshot.frame = frame
+            view.window?.addSubview(snapshot)
+            gravity.addItem(snapshot)
+            collision.addItem(snapshot)
+        }
+        
+    }
+    
     var currentTab: TabViewController? {
         return tabManager?.current
     }
@@ -114,6 +130,31 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         startOnboardingFlowIfNotSeenBefore()
+        
+        gravity = UIGravityBehavior()
+        collision = UICollisionBehavior()
+        
+        animator = UIDynamicAnimator(referenceView: self.view.window!)
+        animator.addBehavior(gravity)
+        animator.addBehavior(collision)
+        
+//        let view = UIView(frame: CGRect(x: 50, y: self.view.frame.height - 200, width: 10, height: 10))
+//        view.backgroundColor = .red
+//        view.isUserInteractionEnabled = false
+//        self.view.window?.addSubview(view)
+//        collision.addItem(view)
+        
+        let height = view.frame.size.height
+        let width = view.frame.width
+    
+        collision.addBoundary(withIdentifier: "suprise1" as NSString,
+                              from: CGPoint(x: 40, y: height - 200),
+                              to: CGPoint(x: 50, y: height - 200))
+
+        collision.addBoundary(withIdentifier: "suprise2" as NSString,
+                              from: CGPoint(x: 100, y: height - 100),
+                              to: CGPoint(x: 110, y: height - 100))
+
     }
     
     private func registerForKeyboardNotifications() {
