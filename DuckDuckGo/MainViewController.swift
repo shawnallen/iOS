@@ -89,8 +89,9 @@ class MainViewController: UIViewController {
     fileprivate lazy var blurTransition = CompositeTransition(presenting: BlurAnimatedTransitioning(), dismissing: DissolveAnimatedTransitioning())
 
     var animator: UIDynamicAnimator!
-    var gravity: UIFieldBehavior!
+    var gravity: UIGravityBehavior!
     var collision: UICollisionBehavior!
+    var field: UIFieldBehavior!
     
     func dropOff(view: UIView) {
         
@@ -146,22 +147,31 @@ class MainViewController: UIViewController {
         }
         path.close()
 
+        print("***", path.bounds)
+
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
         guard let context = UIGraphicsGetCurrentContext() else { return }
-
         path.addClip()
-
         view.layer.render(in: context)
-
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return }
         UIGraphicsEndImageContext()
 
-        let imageView = UIImageView(image: image)
-        imageView.frame = frame
+        let scale = image.scale
+        let scaledBounds = path.bounds.applying(CGAffineTransform.identity.scaledBy(x: scale, y: scale))
+
+        guard let cgImage = image.cgImage?.cropping(to: scaledBounds) else { return }
+        let imageView = UIImageView(image: UIImage(cgImage: cgImage))
+        imageView.frame = CGRect(x: frame.origin.x + path.bounds.origin.x,
+                                 y: frame.origin.y + path.bounds.origin.y,
+                                 width: path.bounds.width,
+                                 height: path.bounds.height)
 
         view.window?.addSubview(imageView)
         gravity.addItem(imageView)
         collision.addItem(imageView)
+        field.addItem(imageView)
+
+        print("***", #function, "out")
     }
 
     var currentTab: TabViewController? {
@@ -194,13 +204,15 @@ class MainViewController: UIViewController {
         let height = view.frame.size.height
         let width = view.frame.width
 
-        gravity = UIFieldBehavior.linearGravityField(direction: CGVector(dx: 0, dy: 9.8))
+        gravity = UIGravityBehavior()
+        field = UIFieldBehavior.noiseField(smoothness: 0.5, animationSpeed: 0.5)
 
         collision = UICollisionBehavior()
         
         animator = UIDynamicAnimator(referenceView: self.view.window!)
         animator.addBehavior(gravity)
         animator.addBehavior(collision)
+        animator.addBehavior(field)
         
 //        let view = UIView(frame: CGRect(x: 50, y: self.view.frame.height - 200, width: 10, height: 10))
 //        view.backgroundColor = .red
