@@ -89,21 +89,81 @@ class MainViewController: UIViewController {
     fileprivate lazy var blurTransition = CompositeTransition(presenting: BlurAnimatedTransitioning(), dismissing: DissolveAnimatedTransitioning())
 
     var animator: UIDynamicAnimator!
-    var gravity: UIGravityBehavior!
+    var gravity: UIFieldBehavior!
     var collision: UICollisionBehavior!
     
     func dropOff(view: UIView) {
         
+//        if let snapshot = view.snapshotView(afterScreenUpdates: false) {
+//            snapshot.frame = frame
+//            view.window?.addSubview(snapshot)
+//            gravity.addItem(snapshot)
+//            collision.addItem(snapshot)
+//        }
+
+
         let frame = view.convert(view.bounds, to: nil)
-        if let snapshot = view.snapshotView(afterScreenUpdates: false) {
-            snapshot.frame = frame
-            view.window?.addSubview(snapshot)
-            gravity.addItem(snapshot)
-            collision.addItem(snapshot)
-        }
-        
+        let width = frame.width
+        let height = frame.height
+
+        createShard(view: view, coords: [
+            CGPoint(x: 0, y: 0),
+            CGPoint(x: width / 2, y: 0),
+            CGPoint(x: width / 2, y: height / 2),
+            CGPoint(x: 0, y: height / 2),
+        ])
+
+        createShard(view: view, coords: [
+            CGPoint(x: width / 2, y: 0),
+            CGPoint(x: width, y: 0),
+            CGPoint(x: width, y: height / 2),
+            CGPoint(x: width / 2, y: height / 2),
+        ])
+
+        createShard(view: view, coords: [
+            CGPoint(x: 0, y: height / 2),
+            CGPoint(x: width / 2, y: height / 2),
+            CGPoint(x: width / 2, y: height),
+            CGPoint(x: 0, y: height),
+        ])
+
+        createShard(view: view, coords: [
+            CGPoint(x: width / 2, y: height / 2),
+            CGPoint(x: width, y: height / 2),
+            CGPoint(x: width, y: height),
+            CGPoint(x: width / 2, y: height),
+        ])
+
     }
-    
+
+    func createShard(view: UIView, coords: [CGPoint]) {
+        let frame = view.convert(view.bounds, to: nil)
+
+        let path = UIBezierPath()
+        path.move(to: coords[0])
+        for coord in coords[1 ..< coords.count] {
+            path.addLine(to: coord)
+        }
+        path.close()
+
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+
+        path.addClip()
+
+        view.layer.render(in: context)
+
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return }
+        UIGraphicsEndImageContext()
+
+        let imageView = UIImageView(image: image)
+        imageView.frame = frame
+
+        view.window?.addSubview(imageView)
+        gravity.addItem(imageView)
+        collision.addItem(imageView)
+    }
+
     var currentTab: TabViewController? {
         return tabManager?.current
     }
@@ -130,8 +190,12 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         startOnboardingFlowIfNotSeenBefore()
-        
-        gravity = UIGravityBehavior()
+
+        let height = view.frame.size.height
+        let width = view.frame.width
+
+        gravity = UIFieldBehavior.linearGravityField(direction: CGVector(dx: 0, dy: 9.8))
+
         collision = UICollisionBehavior()
         
         animator = UIDynamicAnimator(referenceView: self.view.window!)
@@ -144,16 +208,17 @@ class MainViewController: UIViewController {
 //        self.view.window?.addSubview(view)
 //        collision.addItem(view)
         
-        let height = view.frame.size.height
-        let width = view.frame.width
-    
-        collision.addBoundary(withIdentifier: "suprise1" as NSString,
-                              from: CGPoint(x: 40, y: height - 200),
-                              to: CGPoint(x: 50, y: height - 200))
+        collision.addBoundary(withIdentifier: "block1" as NSString,
+                              from: CGPoint(x: 65, y: height - 200),
+                              to: CGPoint(x: 66, y: height - 200))
 
-        collision.addBoundary(withIdentifier: "suprise2" as NSString,
+        collision.addBoundary(withIdentifier: "block1" as NSString,
+                              from: CGPoint(x: 40, y: height - 250),
+                              to: CGPoint(x: 41, y: height - 250))
+
+        collision.addBoundary(withIdentifier: "block2" as NSString,
                               from: CGPoint(x: 100, y: height - 100),
-                              to: CGPoint(x: 110, y: height - 100))
+                              to: CGPoint(x: 101, y: height - 100))
 
     }
     
@@ -329,6 +394,8 @@ class MainViewController: UIViewController {
         addToView(controller: controller)
 
         refreshControls()
+
+        bookmarkStore.addFavorite(Link(title: "Google", url: URL(string: "https://google.com")!))
     }
 
     fileprivate func removeHomeScreen() {

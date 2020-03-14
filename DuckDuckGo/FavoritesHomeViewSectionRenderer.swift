@@ -165,7 +165,7 @@ class FavoritesHomeViewSectionRenderer: NSObject, HomeViewSectionRenderer {
         Pixel.fire(pixel: .homeScreenDeleteFavorite)
         bookmarksManager.deleteFavorite(at: indexPath.row)
         
-        ((controller as? HomeViewController)?.parent as? MainViewController)?.dropOff(view: cell)
+        ((controller as? HomeViewController)?.parent as? MainViewController)?.dropOff(view: cell.iconBackground)
         
         collectionView.performBatchUpdates({
             collectionView.deleteItems(at: [indexPath])
