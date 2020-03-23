@@ -22,8 +22,8 @@ import os.signpost
 
 public class TabInstrumentation {
     
-    static let tabsLog = OSLog(subsystem: "com.duckduckgo.instrumentation",
-                               category: "TabInstrumentation")
+    static let tabsLog = OSLog.disabled//(subsystem: "com.duckduckgo.instrumentation",
+                               //category: "TabInstrumentation")
     
     static var tabMaxIdentifier: UInt64 = 0
     

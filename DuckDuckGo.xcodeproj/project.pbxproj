@@ -307,6 +307,7 @@
 		985892522260B1B200EEB31B /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985892512260B1B200EEB31B /* ProgressView.swift */; };
 		9865DFF922A8220D00D27829 /* FavoritesOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9865DFF822A8220D00D27829 /* FavoritesOverlay.swift */; };
 		9865DFFD22A84CF300D27829 /* FavoriteHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9865DFFC22A84CF300D27829 /* FavoriteHomeCell.xib */; };
+		9870293824251B4A001071C3 /* WebKitHeartbeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9870293724251B4A001071C3 /* WebKitHeartbeat.swift */; };
 		9874F9EE2187AFCE00CAF33D /* Themable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9874F9ED2187AFCE00CAF33D /* Themable.swift */; };
 		9875E00722316B8400B1373F /* Instruments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9875E00622316B8400B1373F /* Instruments.swift */; };
 		987613F622D53DBA00C54BFD /* FavoritesHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987613F422D53DBA00C54BFD /* FavoritesHeaderCell.swift */; };
@@ -945,6 +946,7 @@
 		985892512260B1B200EEB31B /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		9865DFF822A8220D00D27829 /* FavoritesOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesOverlay.swift; sourceTree = "<group>"; };
 		9865DFFC22A84CF300D27829 /* FavoriteHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteHomeCell.xib; sourceTree = "<group>"; };
+		9870293724251B4A001071C3 /* WebKitHeartbeat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitHeartbeat.swift; sourceTree = "<group>"; };
 		9874F9ED2187AFCE00CAF33D /* Themable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themable.swift; sourceTree = "<group>"; };
 		9875E00622316B8400B1373F /* Instruments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instruments.swift; sourceTree = "<group>"; };
 		987613F422D53DBA00C54BFD /* FavoritesHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesHeaderCell.swift; sourceTree = "<group>"; };
@@ -2286,6 +2288,7 @@
 			children = (
 				8565A34A1FC8D96B00239327 /* LaunchTabNotification.swift */,
 				F1617C141E57336D00DEDCAF /* TabManager.swift */,
+				9870293724251B4A001071C3 /* WebKitHeartbeat.swift */,
 				F13B4BF51F18C75D00814661 /* Model */,
 				F13B4BF61F18C76600814661 /* UI */,
 			);
@@ -3725,6 +3728,7 @@
 				839F46B620DD9D31003B8A66 /* SiteFeedbackViewController.swift in Sources */,
 				9888F77B2224980500C46159 /* FeedbackViewController.swift in Sources */,
 				F14513551F45FBFD00710C46 /* SiteRatingView.swift in Sources */,
+				9870293824251B4A001071C3 /* WebKitHeartbeat.swift in Sources */,
 				8C4724502217A14B004C9B2D /* TabViewControllerLongPressBookmarkExtension.swift in Sources */,
 				980891A72237D5D800313A70 /* FeedbackPresenter.swift in Sources */,
 				987613F622D53DBA00C54BFD /* FavoritesHeaderCell.swift in Sources */,
