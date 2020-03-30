@@ -18,6 +18,7 @@
 //
 
 import UIKit
+import Lottie
 
 extension FireAnimation: NibLoading {}
 
@@ -32,6 +33,9 @@ class FireAnimation: UIView {
         static let endAnimationDuration = 0.2
     }
 
+    static let anim = Animation.named("fire")
+    static let provider = AnimationProvider()
+
     static func animate(completion: @escaping () -> Void) {
 
         guard let window = UIApplication.shared.keyWindow else {
@@ -39,26 +43,40 @@ class FireAnimation: UIView {
             return
         }
 
-        let anim = FireAnimation.load(nibName: "FireAnimation")
-        anim.image.animationImages = animatedImages
-        anim.image.contentMode = window.frame.width > anim.image.animationImages![0].size.width ? .scaleAspectFill : .center
-        anim.image.startAnimating()
+//        let anim = FireAnimation.load(nibName: "FireAnimation")
+//        anim.image.animationImages = animatedImages
+//        anim.image.contentMode = window.frame.width > anim.image.animationImages![0].size.width ? .scaleAspectFill : .center
+//        anim.image.startAnimating()
+//
+//        anim.frame = window.frame
+//        anim.transform.ty = anim.frame.size.height
+//        window.addSubview(anim)
+//
+//        UIView.animate(withDuration: Constants.animationDuration, delay: 0, options: .curveEaseOut, animations: {
+//            anim.transform.ty = -(anim.offset.constant * 2)
+//        }, completion: { _ in
+//            completion()
+//        })
+//
+//        UIView.animate(withDuration: Constants.endAnimationDuration, delay: Constants.endDelayDuration, options: .curveEaseOut, animations: {
+//            anim.alpha = 0
+//        }, completion: { _ in
+//            anim.removeFromSuperview()
+//        })
 
-        anim.frame = window.frame
-        anim.transform.ty = anim.frame.size.height
-        window.addSubview(anim)
+        print("***", anim?.size as Any)
 
-        UIView.animate(withDuration: Constants.animationDuration, delay: 0, options: .curveEaseOut, animations: {
-            anim.transform.ty = -(anim.offset.constant * 2)
-        }, completion: { _ in
+        let animView = AnimationView(animation: anim)
+        animView.frame = window.frame
+
+        animView.imageProvider = provider
+        animView.textProvider = provider
+
+        window.addSubview(animView)
+        animView.play { _ in
+            animView.removeFromSuperview()
             completion()
-        })
-
-        UIView.animate(withDuration: Constants.endAnimationDuration, delay: Constants.endDelayDuration, options: .curveEaseOut, animations: {
-            anim.alpha = 0
-        }, completion: { _ in
-            anim.removeFromSuperview()
-        })
+        }
 
     }
 
@@ -70,6 +88,20 @@ class FireAnimation: UIView {
             images.append(image)
         }
         return images
+    }
+
+}
+
+class AnimationProvider: AnimationImageProvider, AnimationTextProvider {
+
+    func textFor(keypathName: String, sourceText: String) -> String {
+        print("***", #function, keypathName, sourceText)
+        return ""
+    }
+
+    func imageForAsset(asset: ImageAsset) -> CGImage? {
+        print("***", #function, asset.name)
+        return nil
     }
 
 }

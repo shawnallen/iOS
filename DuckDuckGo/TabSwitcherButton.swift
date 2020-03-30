@@ -44,7 +44,7 @@ class TabSwitcherButton: UIView {
 
     var workItem: DispatchWorkItem?
 
-    let anim = LOTAnimationView(name: "new_tab")
+    lazy var anim = AnimationView()
     let tint = UIView(frame: .zero)
     let label = UILabel()
     
@@ -66,7 +66,7 @@ class TabSwitcherButton: UIView {
     
     var hasUnread: Bool = false {
         didSet {
-            anim.animationProgress = hasUnread ? 1.0 : 0.0
+//            anim.animationProgress = hasUnread ? 1.0 : 0.0
         }
     }
     
@@ -208,9 +208,9 @@ extension TabSwitcherButton: Themable {
 
         switch theme.currentImageSet {
         case .light:
-            anim.setAnimation(named: "new_tab_dark")
+            anim.animation = Animation.named("new_tab_dark")
         case .dark:
-            anim.setAnimation(named: "new_tab")
+            anim.animation = Animation.named("new_tab")
         }
 
         addSubview(anim)

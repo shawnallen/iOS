@@ -21,9 +21,11 @@ import Foundation
 import UIKit
 
 protocol AutoClearWorker {
-    
+
+    typealias Completion = () -> Void
+
     func clearNavigationStack()
-    func forgetData()
+    func forgetData(_ completion: Completion?)
     func forgetTabs()
 }
 
@@ -46,7 +48,7 @@ class AutoClear {
         guard let settings = AutoClearSettingsModel(settings: appSettings) else { return }
         
         if settings.action.contains(.clearData) {
-            worker.forgetData()
+            worker.forgetData(nil)
         }
         
         if settings.action.contains(.clearTabs) {
@@ -59,7 +61,7 @@ class AutoClear {
         
         // Note: for startup, we clear only Data, as TabsModel is cleared on load
         if settings.action.contains(.clearData) {
-            worker.forgetData()
+            worker.forgetData(nil)
         }
     }
     

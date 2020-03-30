@@ -1062,7 +1062,7 @@ extension MainViewController: AutoClearWorker {
         attachHomeScreen()
     }
     
-    func forgetData() {
+    func forgetData(_ completion: AutoClearWorker.Completion?) {
         findInPageView?.done()
         
         ServerTrustCache.shared.clear()
@@ -1071,20 +1071,37 @@ extension MainViewController: AutoClearWorker {
         let pixel = TimedPixel(.forgetAllDataCleared)
         WebCacheManager.shared.clear {
             pixel.fire(withAdditionalParmaeters: [PixelParameters.tabCount: "\(self.tabManager.count)"])
+            completion?()
         }
     }
     
     fileprivate func forgetAllWithAnimation(completion: @escaping () -> Void) {
         let spid = Instruments.shared.startTimedEvent(.clearingData)
         Pixel.fire(pixel: .forgetAllExecuted, withAdditionalParameters: PreserveLogins.shared.forgetAllPixelParameters)
-        forgetData()
+
+        let group = DispatchGroup()
+        group.enter()
+        group.enter()
+
         FireAnimation.animate {
-            self.forgetTabs()
-            completion()
-            Instruments.shared.endTimedEvent(for: spid)
+            group.leave()
         }
-        let window = UIApplication.shared.keyWindow
-        window?.showBottomToast(UserText.actionForgetAllDone, duration: 1)
+
+        forgetData {
+            self.forgetTabs()
+            Instruments.shared.endTimedEvent(for: spid)
+            group.leave()
+        }
+
+        DispatchQueue.global(qos: .background).async {
+            group.wait()
+            DispatchQueue.main.async {
+                let window = UIApplication.shared.keyWindow
+                window?.showBottomToast(UserText.actionForgetAllDone, duration: 1)
+                completion()
+            }
+        }
+
     }
     
 }
