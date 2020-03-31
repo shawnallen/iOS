@@ -168,6 +168,8 @@
 		8540BD5223D8C2220057FDD2 /* PreserveLoginsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8540BD5123D8C2220057FDD2 /* PreserveLoginsTests.swift */; };
 		8540BD5423D8D5080057FDD2 /* PreserveLoginsAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8540BD5323D8D5080057FDD2 /* PreserveLoginsAlert.swift */; };
 		8540BD5623D9E9C20057FDD2 /* PreserveLoginsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8540BD5523D9E9C20057FDD2 /* PreserveLoginsSettingsViewController.swift */; };
+		854104E82433CBE800D7DD35 /* dino fire.json in Resources */ = {isa = PBXBuildFile; fileRef = 854104E62433CBE800D7DD35 /* dino fire.json */; };
+		854104E92433CBE800D7DD35 /* big foot.json in Resources */ = {isa = PBXBuildFile; fileRef = 854104E72433CBE800D7DD35 /* big foot.json */; };
 		85436C3F1FA74BC300F4EEE1 /* PrivacyProtection.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85436C3E1FA74BC300F4EEE1 /* PrivacyProtection.xcassets */; };
 		85449EF523FDA02800512AAF /* KeyboardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85449EF423FDA02800512AAF /* KeyboardSettingsViewController.swift */; };
 		85449EFB23FDA0BC00512AAF /* UserDefaultsPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85449EFA23FDA0BC00512AAF /* UserDefaultsPropertyWrapper.swift */; };
@@ -798,6 +800,8 @@
 		8540BD5123D8C2220057FDD2 /* PreserveLoginsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreserveLoginsTests.swift; sourceTree = "<group>"; };
 		8540BD5323D8D5080057FDD2 /* PreserveLoginsAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreserveLoginsAlert.swift; sourceTree = "<group>"; };
 		8540BD5523D9E9C20057FDD2 /* PreserveLoginsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreserveLoginsSettingsViewController.swift; sourceTree = "<group>"; };
+		854104E62433CBE800D7DD35 /* dino fire.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "dino fire.json"; sourceTree = "<group>"; };
+		854104E72433CBE800D7DD35 /* big foot.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "big foot.json"; sourceTree = "<group>"; };
 		85436C3E1FA74BC300F4EEE1 /* PrivacyProtection.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PrivacyProtection.xcassets; sourceTree = "<group>"; };
 		85449EF423FDA02800512AAF /* KeyboardSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardSettingsViewController.swift; sourceTree = "<group>"; };
 		85449EFA23FDA0BC00512AAF /* UserDefaultsPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPropertyWrapper.swift; sourceTree = "<group>"; };
@@ -1786,6 +1790,8 @@
 		859872221F5743AF00041CB8 /* FireAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				854104E72433CBE800D7DD35 /* big foot.json */,
+				854104E62433CBE800D7DD35 /* dino fire.json */,
 				85248086242FF1FA0071D63A /* black_hole.json */,
 				85248084242FF1610071D63A /* lightning.json */,
 				85A4FA07242FE67700C606FE /* fire.json */,
@@ -3291,6 +3297,7 @@
 				F1EEAC551EAFC783006128D9 /* proximanova-light.otf in Resources */,
 				F1EEAC561EAFC783006128D9 /* proximanova-regular.otf in Resources */,
 				F1EEAC571EAFC783006128D9 /* proximanova-semibold.otf in Resources */,
+				854104E82433CBE800D7DD35 /* dino fire.json in Resources */,
 				AA4D6AA223DE4CC4007E8790 /* AppIconBlue76x76@2x.png in Resources */,
 				AA4D6AB823DE4D15007E8790 /* AppIconYellow29x29@2x.png in Resources */,
 				8563A0381F8E54F100F04442 /* Tab.storyboard in Resources */,
@@ -3378,6 +3385,7 @@
 				AA4D6ACF23DE4D27007E8790 /* AppIconPurple76x76@2x.png in Resources */,
 				98EF177D21837E35006750C1 /* new_tab_dark.json in Resources */,
 				85081A051FE05D40006561FD /* Localizable.stringsdict in Resources */,
+				854104E92433CBE800D7DD35 /* big foot.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

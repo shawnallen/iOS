@@ -33,7 +33,7 @@ class FireAnimation: UIView {
         static let endAnimationDuration = 0.2
     }
 
-    static let anim = Animation.named("fire")
+    static let anim = Animation.named("big foot")
     static let provider = AnimationProvider()
 
     static func animate(completion: @escaping () -> Void) {
