@@ -155,6 +155,7 @@ public class AppUserDefaults: AppSettings {
     
 }
 
+// swiftlint:disable implicit_getter
 extension AppUserDefaults: AppConfigurationFetchStatistics {
     
     var foregroundStartCount: Int {
@@ -211,3 +212,4 @@ extension AppUserDefaults: AppConfigurationFetchStatistics {
         }
     }
 }
+// swiftlint:enable implicit_getter    

@@ -177,6 +177,8 @@
 		85449EFF23FDA97000512AAF /* HomePageSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85449EFE23FDA96F00512AAF /* HomePageSettings.swift */; };
 		85449F0123FEAF3000512AAF /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85449F0023FEAF3000512AAF /* UserDefaultsExtension.swift */; };
 		854757B124088EFE00C47837 /* PaddingHomeViewSectionRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854757B024088EFE00C47837 /* PaddingHomeViewSectionRenderer.swift */; };
+		854EBA7C24463C4E000DDB3E /* firev5.json in Resources */ = {isa = PBXBuildFile; fileRef = 854EBA7B24463C4E000DDB3E /* firev5.json */; };
+		854EBA7E24466134000DDB3E /* firev5-nc.json in Resources */ = {isa = PBXBuildFile; fileRef = 854EBA7D24466134000DDB3E /* firev5-nc.json */; };
 		85514FFD2372DA0100DBC528 /* ios13-home-row.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 85514FFC2372DA0000DBC528 /* ios13-home-row.mp4 */; };
 		855D914D2063EF6A00C4B448 /* CompositeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D914C2063EF6A00C4B448 /* CompositeTransition.swift */; };
 		855D914F206563A000C4B448 /* TLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D914E206563A000C4B448 /* TLD.swift */; };
@@ -809,6 +811,8 @@
 		85449EFE23FDA96F00512AAF /* HomePageSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePageSettings.swift; sourceTree = "<group>"; };
 		85449F0023FEAF3000512AAF /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
 		854757B024088EFE00C47837 /* PaddingHomeViewSectionRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingHomeViewSectionRenderer.swift; sourceTree = "<group>"; };
+		854EBA7B24463C4E000DDB3E /* firev5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firev5.json; sourceTree = "<group>"; };
+		854EBA7D24466134000DDB3E /* firev5-nc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "firev5-nc.json"; sourceTree = "<group>"; };
 		85514FFC2372DA0000DBC528 /* ios13-home-row.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ios13-home-row.mp4"; sourceTree = "<group>"; };
 		855D914C2063EF6A00C4B448 /* CompositeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeTransition.swift; sourceTree = "<group>"; };
 		855D914E206563A000C4B448 /* TLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLD.swift; sourceTree = "<group>"; };
@@ -1790,6 +1794,8 @@
 		859872221F5743AF00041CB8 /* FireAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				854EBA7D24466134000DDB3E /* firev5-nc.json */,
+				854EBA7B24463C4E000DDB3E /* firev5.json */,
 				854104E72433CBE800D7DD35 /* big foot.json */,
 				854104E62433CBE800D7DD35 /* dino fire.json */,
 				85248086242FF1FA0071D63A /* black_hole.json */,
@@ -3331,6 +3337,7 @@
 				AAF2E28523E0496F00962AF8 /* AppIconGreen83.5x83.5@2x.png in Resources */,
 				AAF2E28723E0498200962AF8 /* AppIconPurple83.5x83.5@2x.png in Resources */,
 				AA4D6AB923DE4D15007E8790 /* AppIconYellow29x29@3x.png in Resources */,
+				854EBA7C24463C4E000DDB3E /* firev5.json in Resources */,
 				F1AE54EA1F04263600D9A700 /* Authentication.storyboard in Resources */,
 				AA4D6ABC23DE4D15007E8790 /* AppIconYellow60x60@3x.png in Resources */,
 				AA4D6AA823DE4CC4007E8790 /* AppIconBlue40x40@2x.png in Resources */,
@@ -3352,6 +3359,7 @@
 				83A23D6320DC330000051F39 /* Feedback.storyboard in Resources */,
 				85248085242FF1610071D63A /* lightning.json in Resources */,
 				85AB24A81FA7449D00896A5F /* PrivacyProtection.storyboard in Resources */,
+				854EBA7E24466134000DDB3E /* firev5-nc.json in Resources */,
 				850819DD1FDDE1A8006561FD /* SettingsTutorialAssets.xcassets in Resources */,
 				AA4D6AA723DE4CC4007E8790 /* AppIconBlue60x60@2x.png in Resources */,
 				F176699F1E40BC86003D3222 /* Settings.storyboard in Resources */,

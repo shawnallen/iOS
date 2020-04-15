@@ -33,7 +33,7 @@ class FireAnimation: UIView {
         static let endAnimationDuration = 0.2
     }
 
-    static let anim = Animation.named("big foot")
+    static let anim = Animation.named("firev5-nc")
     static let provider = AnimationProvider()
 
     static func animate(completion: @escaping () -> Void) {
@@ -66,17 +66,49 @@ class FireAnimation: UIView {
 
         print("***", anim?.size as Any)
 
-        let animView = AnimationView(animation: anim)
-        animView.frame = window.frame
-
-        animView.imageProvider = provider
-        animView.textProvider = provider
-
-        window.addSubview(animView)
-        animView.play { _ in
-            animView.removeFromSuperview()
+        guard let root = UIApplication.shared.keyWindow?.rootViewController else {
             completion()
+            return
         }
+
+        guard let snapshotView = root.view.snapshotView(afterScreenUpdates: false) else {
+            completion()
+            return
+        }
+
+        root.view.addSubview(snapshotView)
+        snapshotView.center = root.view.center
+
+        UIView.animate(withDuration: 0.2, animations: {
+
+            root.view.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8)
+
+        }, completion: { _ in
+
+            let animView = AnimationView(animation: anim)
+            animView.frame = window.frame
+
+            animView.imageProvider = provider
+            animView.textProvider = provider
+
+            UIView.animate(withDuration: 0.3) {
+                snapshotView.alpha = 0.0
+            }
+
+            window.addSubview(animView)
+            animView.play { _ in
+                window.layer.contentsScale = 1.0
+                animView.removeFromSuperview()
+                completion()
+
+                UIView.animate(withDuration: 0.3, animations: {
+                    root.view.transform = CGAffineTransform.identity
+                }, completion: { _ in
+                    snapshotView.removeFromSuperview()
+                })
+            }
+
+        })
 
     }
 
