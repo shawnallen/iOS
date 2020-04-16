@@ -180,6 +180,7 @@
 		854EBA7C24463C4E000DDB3E /* firev5.json in Resources */ = {isa = PBXBuildFile; fileRef = 854EBA7B24463C4E000DDB3E /* firev5.json */; };
 		854EBA7E24466134000DDB3E /* firev5-nc.json in Resources */ = {isa = PBXBuildFile; fileRef = 854EBA7D24466134000DDB3E /* firev5-nc.json */; };
 		85514FFD2372DA0100DBC528 /* ios13-home-row.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 85514FFC2372DA0000DBC528 /* ios13-home-row.mp4 */; };
+		855357C62448C47D00E91889 /* fire-v3b-dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 855357C52448C47D00E91889 /* fire-v3b-dark.json */; };
 		855D914D2063EF6A00C4B448 /* CompositeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D914C2063EF6A00C4B448 /* CompositeTransition.swift */; };
 		855D914F206563A000C4B448 /* TLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855D914E206563A000C4B448 /* TLD.swift */; };
 		8563A0351F8E369400F04442 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8563A0341F8E369400F04442 /* Home.storyboard */; };
@@ -814,6 +815,7 @@
 		854EBA7B24463C4E000DDB3E /* firev5.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = firev5.json; sourceTree = "<group>"; };
 		854EBA7D24466134000DDB3E /* firev5-nc.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "firev5-nc.json"; sourceTree = "<group>"; };
 		85514FFC2372DA0000DBC528 /* ios13-home-row.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ios13-home-row.mp4"; sourceTree = "<group>"; };
+		855357C52448C47D00E91889 /* fire-v3b-dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "fire-v3b-dark.json"; sourceTree = "<group>"; };
 		855D914C2063EF6A00C4B448 /* CompositeTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeTransition.swift; sourceTree = "<group>"; };
 		855D914E206563A000C4B448 /* TLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLD.swift; sourceTree = "<group>"; };
 		8563A0341F8E369400F04442 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -1794,6 +1796,7 @@
 		859872221F5743AF00041CB8 /* FireAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				855357C52448C47D00E91889 /* fire-v3b-dark.json */,
 				854EBA7D24466134000DDB3E /* firev5-nc.json */,
 				854EBA7B24463C4E000DDB3E /* firev5.json */,
 				854104E72433CBE800D7DD35 /* big foot.json */,
@@ -3334,6 +3337,7 @@
 				AA4D6ABB23DE4D15007E8790 /* AppIconYellow40x40@2x.png in Resources */,
 				84E341A01E2F7EFB00BDBA6F /* LaunchScreen.storyboard in Resources */,
 				F114C55E1E6717800018F95F /* OmniBar.xib in Resources */,
+				855357C62448C47D00E91889 /* fire-v3b-dark.json in Resources */,
 				AAF2E28523E0496F00962AF8 /* AppIconGreen83.5x83.5@2x.png in Resources */,
 				AAF2E28723E0498200962AF8 /* AppIconPurple83.5x83.5@2x.png in Resources */,
 				AA4D6AB923DE4D15007E8790 /* AppIconYellow29x29@3x.png in Resources */,

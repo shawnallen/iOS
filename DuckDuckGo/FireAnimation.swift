@@ -33,82 +33,69 @@ class FireAnimation: UIView {
         static let endAnimationDuration = 0.2
     }
 
-    static let anim = Animation.named("firev5-nc")
+    static let anim = Animation.named("fire-v3b-dark")
+
     static let provider = AnimationProvider()
 
-    static func animate(completion: @escaping () -> Void) {
+    static func animate(newVersion: Bool, completion: @escaping () -> Void) {
 
         guard let window = UIApplication.shared.keyWindow else {
             completion()
             return
         }
 
-//        let anim = FireAnimation.load(nibName: "FireAnimation")
-//        anim.image.animationImages = animatedImages
-//        anim.image.contentMode = window.frame.width > anim.image.animationImages![0].size.width ? .scaleAspectFill : .center
-//        anim.image.startAnimating()
-//
-//        anim.frame = window.frame
-//        anim.transform.ty = anim.frame.size.height
-//        window.addSubview(anim)
-//
-//        UIView.animate(withDuration: Constants.animationDuration, delay: 0, options: .curveEaseOut, animations: {
-//            anim.transform.ty = -(anim.offset.constant * 2)
-//        }, completion: { _ in
-//            completion()
-//        })
-//
-//        UIView.animate(withDuration: Constants.endAnimationDuration, delay: Constants.endDelayDuration, options: .curveEaseOut, animations: {
-//            anim.alpha = 0
-//        }, completion: { _ in
-//            anim.removeFromSuperview()
-//        })
-
-        print("***", anim?.size as Any)
-
-        guard let root = UIApplication.shared.keyWindow?.rootViewController else {
+        guard let snapshot = window.snapshotView(afterScreenUpdates: false) else {
             completion()
             return
         }
 
-        guard let snapshotView = root.view.snapshotView(afterScreenUpdates: false) else {
-            completion()
-            return
-        }
+        window.addSubview(snapshot)
 
-        root.view.addSubview(snapshotView)
-        snapshotView.center = root.view.center
+        if newVersion {
 
-        UIView.animate(withDuration: 0.2, animations: {
-
-            root.view.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8)
-
-        }, completion: { _ in
-
+            print("***", anim?.size as Any)
             let animView = AnimationView(animation: anim)
+
             animView.frame = window.frame
 
             animView.imageProvider = provider
             animView.textProvider = provider
-
-            UIView.animate(withDuration: 0.3) {
-                snapshotView.alpha = 0.0
-            }
-
             window.addSubview(animView)
-            animView.play { _ in
-                window.layer.contentsScale = 1.0
-                animView.removeFromSuperview()
-                completion()
 
-                UIView.animate(withDuration: 0.3, animations: {
-                    root.view.transform = CGAffineTransform.identity
-                }, completion: { _ in
-                    snapshotView.removeFromSuperview()
-                })
+            animView.play(fromFrame: 0, toFrame: 35, loopMode: .playOnce) { _ in
+                animView.play(fromFrame: 35, toFrame: 60, loopMode: .playOnce) { _ in
+                    animView.removeFromSuperview()
+                    completion()
+                    snapshot.removeFromSuperview()
+                }
+                snapshot.removeFromSuperview()
             }
 
-        })
+        } else {
+
+            let anim = FireAnimation.load(nibName: "FireAnimation")
+            anim.image.animationImages = animatedImages
+            anim.image.contentMode = window.frame.width > anim.image.animationImages![0].size.width ? .scaleAspectFill : .center
+            anim.image.startAnimating()
+
+            anim.frame = window.frame
+            anim.transform.ty = anim.frame.size.height
+            window.addSubview(anim)
+
+            UIView.animate(withDuration: Constants.animationDuration, delay: 0, options: .curveEaseOut, animations: {
+                anim.transform.ty = -(anim.offset.constant * 2)
+            }, completion: { _ in
+                completion()
+                snapshot.removeFromSuperview()
+            })
+
+            UIView.animate(withDuration: Constants.endAnimationDuration, delay: Constants.endDelayDuration, options: .curveEaseOut, animations: {
+                anim.alpha = 0
+            }, completion: { _ in
+                anim.removeFromSuperview()
+            })
+
+        }
 
     }
 

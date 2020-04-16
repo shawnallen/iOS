@@ -221,7 +221,6 @@ class MainViewController: UIViewController {
         if let navigationController = segue.destination as? UINavigationController,
             let controller = navigationController.topViewController as? SettingsViewController {
             controller.homePageSettingsDelegate = self
-            controller.preserveLoginsSettingsDelegate = self
             return
         }
 
@@ -303,18 +302,16 @@ class MainViewController: UIViewController {
     @IBAction func onFirePressed() {
         Pixel.fire(pixel: .forgetAllPressedBrowsing, withAdditionalParameters: PreserveLogins.shared.forgetAllPixelParameters)
 
-        let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
+        let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] newVersion in
             guard let self = self else { return }
-            PreserveLoginsAlert.showInitialPromptIfNeeded(usingController: self) { [weak self] in
-                self?.forgetAllWithAnimation {}
-            }
+            self.forgetAllWithAnimation(newVersion: newVersion) {}
         })
         self.present(controller: alert, fromView: self.toolbar)
     }
     
     func onQuickFirePressed() {
         PreserveLoginsAlert.showInitialPromptIfNeeded(usingController: self) {
-            self.forgetAllWithAnimation {}
+            self.forgetAllWithAnimation(newVersion: false) {}
             self.dismiss(animated: true)
             if KeyboardSettings().onAppLaunch {
                 self.enterSearch()
@@ -979,8 +976,8 @@ extension MainViewController: TabSwitcherDelegate {
         remove(tabAt: index)
     }
 
-    func tabSwitcherDidRequestForgetAll(tabSwitcher: TabSwitcherViewController) {
-        self.forgetAllWithAnimation {
+    func tabSwitcherDidRequestForgetAll(tabSwitcher: TabSwitcherViewController, newVersion: Bool) {
+        self.forgetAllWithAnimation(newVersion: newVersion) {
             tabSwitcher.dismiss(animated: false, completion: nil)
         }
     }
@@ -1075,7 +1072,7 @@ extension MainViewController: AutoClearWorker {
         }
     }
     
-    fileprivate func forgetAllWithAnimation(completion: @escaping () -> Void) {
+    fileprivate func forgetAllWithAnimation(newVersion: Bool, completion: @escaping () -> Void) {
         let spid = Instruments.shared.startTimedEvent(.clearingData)
         Pixel.fire(pixel: .forgetAllExecuted, withAdditionalParameters: PreserveLogins.shared.forgetAllPixelParameters)
 
@@ -1083,7 +1080,7 @@ extension MainViewController: AutoClearWorker {
         group.enter()
         group.enter()
 
-        FireAnimation.animate {
+        FireAnimation.animate(newVersion: newVersion) {
             group.leave()
         }
 
@@ -1142,14 +1139,6 @@ extension MainViewController: HomePageSettingsDelegate {
         attachHomeScreen()
     }
     
-}
-
-extension MainViewController: PreserveLoginsSettingsDelegate {
-
-    func forgetAllRequested(completion: @escaping () -> Void) {
-        forgetAllWithAnimation(completion: completion)
-    }
-
 }
 
 extension MainViewController: OnboardingDelegate {

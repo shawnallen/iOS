@@ -50,7 +50,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = UIStoryboard.init(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
             return true
         }
-        
+
+        print(FireAnimation.anim?.size as Any) 
+
         DispatchQueue.global(qos: .background).async {
             FileStore().removeLegacyData()
             ContentBlockerStringCache.removeLegacyData()

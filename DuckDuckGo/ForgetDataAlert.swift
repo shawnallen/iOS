@@ -21,21 +21,25 @@ import UIKit
 
 class ForgetDataAlert {
     
-    static func buildAlert(cancelHandler: (() -> Void)? = nil, forgetTabsAndDataHandler: @escaping () -> Void) -> UIAlertController {
+    static func buildAlert(cancelHandler: (() -> Void)? = nil, forgetTabsAndDataHandler: @escaping (Bool) -> Void) -> UIAlertController {
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.overrideUserInterfaceStyle()
 
-        let forgetTabsAndDataAction = UIAlertAction(title: UserText.actionForgetAll, style: .destructive) { _ in
-            forgetTabsAndDataHandler()
+        alert.addAction(title: "Close Tabs and Clear Data (A)", style: .destructive) {
+            forgetTabsAndDataHandler(false)
         }
-        
+
+        alert.addAction(title: "Close Tabs and Clear Data (B)", style: .destructive) {
+            forgetTabsAndDataHandler(true)
+        }
+
         let cancelAction = UIAlertAction(title: UserText.actionCancel, style: .cancel) { _ in
             cancelHandler?()
         }
 
-        alert.addAction(forgetTabsAndDataAction)
         alert.addAction(cancelAction)
         return alert
     }
+    
 }
