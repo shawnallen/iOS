@@ -302,16 +302,16 @@ class MainViewController: UIViewController {
     @IBAction func onFirePressed() {
         Pixel.fire(pixel: .forgetAllPressedBrowsing, withAdditionalParameters: PreserveLogins.shared.forgetAllPixelParameters)
 
-        let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] newVersion in
+        let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
             guard let self = self else { return }
-            self.forgetAllWithAnimation(newVersion: newVersion) {}
+            self.forgetAllWithAnimation {}
         })
         self.present(controller: alert, fromView: self.toolbar)
     }
     
     func onQuickFirePressed() {
         PreserveLoginsAlert.showInitialPromptIfNeeded(usingController: self) {
-            self.forgetAllWithAnimation(newVersion: false) {}
+            self.forgetAllWithAnimation {}
             self.dismiss(animated: true)
             if KeyboardSettings().onAppLaunch {
                 self.enterSearch()
@@ -976,8 +976,8 @@ extension MainViewController: TabSwitcherDelegate {
         remove(tabAt: index)
     }
 
-    func tabSwitcherDidRequestForgetAll(tabSwitcher: TabSwitcherViewController, newVersion: Bool) {
-        self.forgetAllWithAnimation(newVersion: newVersion) {
+    func tabSwitcherDidRequestForgetAll(tabSwitcher: TabSwitcherViewController) {
+        self.forgetAllWithAnimation {
             tabSwitcher.dismiss(animated: false, completion: nil)
         }
     }
@@ -1072,7 +1072,7 @@ extension MainViewController: AutoClearWorker {
         }
     }
     
-    fileprivate func forgetAllWithAnimation(newVersion: Bool, completion: @escaping () -> Void) {
+    fileprivate func forgetAllWithAnimation(completion: @escaping () -> Void) {
         let spid = Instruments.shared.startTimedEvent(.clearingData)
         Pixel.fire(pixel: .forgetAllExecuted, withAdditionalParameters: PreserveLogins.shared.forgetAllPixelParameters)
 
@@ -1080,7 +1080,7 @@ extension MainViewController: AutoClearWorker {
         group.enter()
         group.enter()
 
-        FireAnimation.animate(newVersion: newVersion) {
+        FireAnimation.animate {
             group.leave()
         }
 

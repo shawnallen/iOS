@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
 
-        print(FireAnimation.anim?.size as Any) 
+        FireAnimation.preload()
 
         DispatchQueue.global(qos: .background).async {
             FileStore().removeLegacyData()

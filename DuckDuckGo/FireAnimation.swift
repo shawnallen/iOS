@@ -19,8 +19,16 @@
 
 import UIKit
 import Lottie
+import Core
 
 extension FireAnimation: NibLoading {}
+
+class AnimationSettings {
+
+    @UserDefaultsWrapper(key: .animation, defaultValue: 0)
+    var animation: Int
+
+}
 
 class FireAnimation: UIView {
 
@@ -33,11 +41,21 @@ class FireAnimation: UIView {
         static let endAnimationDuration = 0.2
     }
 
-    static let anim = Animation.named("fire-v3b-dark")
+    static let fireAnim = Animation.named("fire-v3b-dark")!
+    static let dinoAnim = Animation.named("dinofire")!
+    static let lightningAnim = Animation.named("lightning")!
 
     static let provider = AnimationProvider()
 
-    static func animate(newVersion: Bool, completion: @escaping () -> Void) {
+    static func preload() {
+        DispatchQueue.global(qos: .background).async {
+            _ = fireAnim.size
+            _ = dinoAnim.size
+            _ = lightningAnim.size
+        }
+    }
+
+    static func animate(completion: @escaping () -> Void) {
 
         guard let window = UIApplication.shared.keyWindow else {
             completion()
@@ -51,49 +69,40 @@ class FireAnimation: UIView {
 
         window.addSubview(snapshot)
 
-        if newVersion {
+        let settings = AnimationSettings()
 
-            print("***", anim?.size as Any)
-            let animView = AnimationView(animation: anim)
-            animView.imageProvider = provider
-            animView.textProvider = provider
-            animView.contentMode = .scaleAspectFill
-            animView.frame = window.bounds
-            window.addSubview(animView)
+        let anim: Animation
+        if settings.animation == -1 {
+            anim = lightningAnim
+        } else if settings.animation >= 3 {
+            anim = dinoAnim
+            settings.animation = 0
+        } else {
+            anim = fireAnim
+            settings.animation += 1
+        }
 
+        let animView = AnimationView(animation: anim)
+        animView.imageProvider = provider
+        animView.textProvider = provider
+        animView.contentMode = .scaleAspectFill
+        animView.frame = window.bounds
+        window.addSubview(animView)
+
+        if anim === fireAnim {
             animView.play(fromFrame: 0, toFrame: 35, loopMode: .playOnce) { _ in
                 animView.play(fromFrame: 35, toFrame: 60, loopMode: .playOnce) { _ in
                     animView.removeFromSuperview()
                     completion()
-                    snapshot.removeFromSuperview()
                 }
                 snapshot.removeFromSuperview()
             }
-
         } else {
-
-            let anim = FireAnimation.load(nibName: "FireAnimation")
-            anim.image.animationImages = animatedImages
-            anim.image.contentMode = window.frame.width > anim.image.animationImages![0].size.width ? .scaleAspectFill : .center
-            anim.image.startAnimating()
-
-            anim.frame = window.frame
-            anim.transform.ty = anim.frame.size.height
-            window.addSubview(anim)
-
-            UIView.animate(withDuration: Constants.animationDuration, delay: 0, options: .curveEaseOut, animations: {
-                anim.transform.ty = -(anim.offset.constant * 2)
-            }, completion: { _ in
+            animView.play { _ in
+                animView.removeFromSuperview()
                 completion()
                 snapshot.removeFromSuperview()
-            })
-
-            UIView.animate(withDuration: Constants.endAnimationDuration, delay: Constants.endDelayDuration, options: .curveEaseOut, animations: {
-                anim.alpha = 0
-            }, completion: { _ in
-                anim.removeFromSuperview()
-            })
-
+            }
         }
 
     }

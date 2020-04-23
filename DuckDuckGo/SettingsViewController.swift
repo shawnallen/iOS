@@ -24,6 +24,8 @@ import Device
 
 class SettingsViewController: UITableViewController {
 
+    @IBOutlet weak var animationToggle: UISwitch!
+
     @IBOutlet var margins: [NSLayoutConstraint]!
     @IBOutlet weak var themeAccessoryText: UILabel!
     @IBOutlet weak var appIconCell: UITableViewCell!
@@ -65,6 +67,8 @@ class SettingsViewController: UITableViewController {
         configureUniversalLinksToggle()
         configureLinkPreviewsToggle()
         configureRememberLogins()
+
+        configureAnimationToggle()
         
         applyTheme(ThemeManager.shared.currentTheme)
     }
@@ -132,6 +136,14 @@ class SettingsViewController: UITableViewController {
         for margin in margins {
             margin.constant = 0
         }
+    }
+
+    @IBAction func onAnimationToggle() {
+        AnimationSettings().animation = animationToggle.isOn ? 0 : -1
+    }
+
+    private func configureAnimationToggle() {
+        animationToggle.isOn = AnimationSettings().animation >= 0
     }
     
     private func configureThemeCellAccessory() {
@@ -280,7 +292,8 @@ extension SettingsViewController: Themable {
         }
         
         versionText.textColor = theme.tableCellTextColor
-        
+
+        animationToggle.onTintColor = theme.buttonTintColor
         autocompleteToggle.onTintColor = theme.buttonTintColor
         authenticationToggle.onTintColor = theme.buttonTintColor
         openUniversalLinksToggle.onTintColor = theme.buttonTintColor
