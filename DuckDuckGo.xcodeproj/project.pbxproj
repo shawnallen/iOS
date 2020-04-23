@@ -185,6 +185,13 @@
 		8565A3471FC87EC800239327 /* PrivacyProtectionPracticesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8565A3461FC87EC800239327 /* PrivacyProtectionPracticesController.swift */; };
 		8565A34B1FC8D96B00239327 /* LaunchTabNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8565A34A1FC8D96B00239327 /* LaunchTabNotification.swift */; };
 		8565A34D1FC8DFE400239327 /* LaunchTabNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8565A34C1FC8DFE400239327 /* LaunchTabNotificationTests.swift */; };
+		8567836D2451F1360044EB84 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8567836B2451F1360044EB84 /* Interface.storyboard */; };
+		8567836F2451F1390044EB84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8567836E2451F1390044EB84 /* Assets.xcassets */; };
+		856783762451F1390044EB84 /* DuckDuckWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 856783752451F1390044EB84 /* DuckDuckWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8567837B2451F1390044EB84 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567837A2451F1390044EB84 /* InterfaceController.swift */; };
+		8567837D2451F1390044EB84 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8567837C2451F1390044EB84 /* ExtensionDelegate.swift */; };
+		8567837F2451F13A0044EB84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8567837E2451F13A0044EB84 /* Assets.xcassets */; };
+		856783832451F13A0044EB84 /* DuckDuckWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 856783692451F1360044EB84 /* DuckDuckWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		856D57C5206568BE000170B5 /* tlds.json in Resources */ = {isa = PBXBuildFile; fileRef = 856D57C4206568BE000170B5 /* tlds.json */; };
 		856D57C720656A28000170B5 /* TLDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856D57C620656A28000170B5 /* TLDTests.swift */; };
 		8570656E1F6AAE270044DCB1 /* DetectedTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8570656A1F6AADDF0044DCB1 /* DetectedTrackerTests.swift */; };
@@ -194,6 +201,7 @@
 		857D1DC9223A9E7D00833940 /* MockAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857D1DC8223A9E7D00833940 /* MockAppSettings.swift */; };
 		857D1DCD22401F0200833940 /* NotFoundCachingImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857D1DCA22401DB900833940 /* NotFoundCachingImageDownloader.swift */; };
 		857EEB752095FFAC008A005C /* HomeRowInstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EEB742095FFAC008A005C /* HomeRowInstructionsViewController.swift */; };
+		85887A3C24521267006ABC77 /* OpenTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85887A3A245211E8006ABC77 /* OpenTabsController.swift */; };
 		85923C401FD2F8D10097204B /* PrivacyProtectionTrackerNetworksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85923C3F1FD2F8D10097204B /* PrivacyProtectionTrackerNetworksTests.swift */; };
 		859872241F5743D800041CB8 /* FireAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 859872231F5743D800041CB8 /* FireAnimation.xib */; };
 		8598F67B2405EB8D00FBC70C /* KeyboardSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8598F6792405EB8600FBC70C /* KeyboardSettingsTests.swift */; };
@@ -568,6 +576,20 @@
 			remoteGlobalIDString = 84E341911E2F7EFB00BDBA6F;
 			remoteInfo = DuckDuckGo;
 		};
+		856783772451F1390044EB84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 856783742451F1390044EB84;
+			remoteInfo = "DuckDuckWatch Extension";
+		};
+		856783812451F13A0044EB84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 856783682451F1360044EB84;
+			remoteInfo = DuckDuckWatch;
+		};
 		85CC9370203C402C00690089 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
@@ -601,6 +623,28 @@
 				83491192217F491200610F35 /* BookmarksTodayExtension.appex in Embed App Extensions */,
 				8370943A2142C4C200A58838 /* QuickActionsTodayExtension.appex in Embed App Extensions */,
 				8390447620BDCE10006461CD /* ShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856783842451F13A0044EB84 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				856783832451F13A0044EB84 /* DuckDuckWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856783872451F13A0044EB84 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				856783762451F1390044EB84 /* DuckDuckWatch Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -817,6 +861,15 @@
 		8565A3461FC87EC800239327 /* PrivacyProtectionPracticesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionPracticesController.swift; sourceTree = "<group>"; };
 		8565A34A1FC8D96B00239327 /* LaunchTabNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTabNotification.swift; sourceTree = "<group>"; };
 		8565A34C1FC8DFE400239327 /* LaunchTabNotificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchTabNotificationTests.swift; sourceTree = "<group>"; };
+		856783692451F1360044EB84 /* DuckDuckWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuckDuckWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8567836C2451F1360044EB84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		8567836E2451F1390044EB84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		856783702451F1390044EB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		856783752451F1390044EB84 /* DuckDuckWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "DuckDuckWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8567837A2451F1390044EB84 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		8567837C2451F1390044EB84 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		8567837E2451F13A0044EB84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		856783802451F13A0044EB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		856D57C4206568BE000170B5 /* tlds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tlds.json; sourceTree = "<group>"; };
 		856D57C620656A28000170B5 /* TLDTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLDTests.swift; sourceTree = "<group>"; };
 		8570656A1F6AADDF0044DCB1 /* DetectedTrackerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectedTrackerTests.swift; sourceTree = "<group>"; };
@@ -827,6 +880,8 @@
 		857D1DC8223A9E7D00833940 /* MockAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppSettings.swift; sourceTree = "<group>"; };
 		857D1DCA22401DB900833940 /* NotFoundCachingImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotFoundCachingImageDownloader.swift; path = DuckDuckGoTests/NotFoundCachingImageDownloader.swift; sourceTree = SOURCE_ROOT; };
 		857EEB742095FFAC008A005C /* HomeRowInstructionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRowInstructionsViewController.swift; sourceTree = "<group>"; };
+		85887A3A245211E8006ABC77 /* OpenTabsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTabsController.swift; sourceTree = "<group>"; };
+		85887A3B24521232006ABC77 /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS6.2.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
 		859151E81F543C7500F5FB53 /* SimulatorStatusMagiciOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimulatorStatusMagiciOS.framework; path = Carthage/Build/iOS/SimulatorStatusMagiciOS.framework; sourceTree = "<group>"; };
 		85923C3F1FD2F8D10097204B /* PrivacyProtectionTrackerNetworksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionTrackerNetworksTests.swift; sourceTree = "<group>"; };
 		859872231F5743D800041CB8 /* FireAnimation.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FireAnimation.xib; sourceTree = "<group>"; };
@@ -1239,6 +1294,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		856783722451F1390044EB84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		85CC9368203C402C00690089 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1531,6 +1593,8 @@
 				85CC936C203C402C00690089 /* SpeedTests */,
 				8512BCB420612E500085E862 /* UITests */,
 				85F21DAE210F5E32002631A6 /* AtbIntegrationTests */,
+				8567836A2451F1360044EB84 /* DuckDuckWatch */,
+				856783792451F1390044EB84 /* DuckDuckWatch Extension */,
 				F1AA545F1E48D90700223211 /* Frameworks */,
 				84E341931E2F7EFB00BDBA6F /* Products */,
 				83ED3B8D1FA8E63700B47556 /* README.md */,
@@ -1554,6 +1618,8 @@
 				8370942F2142C4C200A58838 /* QuickActionsTodayExtension.appex */,
 				83491187217F491200610F35 /* BookmarksTodayExtension.appex */,
 				98A54A8122AFCB2C00E541F4 /* Instruments.instrdst */,
+				856783692451F1360044EB84 /* DuckDuckWatch.app */,
+				856783752451F1390044EB84 /* DuckDuckWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1768,6 +1834,28 @@
 				85449EFC23FDA71F00512AAF /* KeyboardSettings.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		8567836A2451F1360044EB84 /* DuckDuckWatch */ = {
+			isa = PBXGroup;
+			children = (
+				8567836B2451F1360044EB84 /* Interface.storyboard */,
+				8567836E2451F1390044EB84 /* Assets.xcassets */,
+				856783702451F1390044EB84 /* Info.plist */,
+			);
+			path = DuckDuckWatch;
+			sourceTree = "<group>";
+		};
+		856783792451F1390044EB84 /* DuckDuckWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8567837A2451F1390044EB84 /* InterfaceController.swift */,
+				8567837C2451F1390044EB84 /* ExtensionDelegate.swift */,
+				85887A3A245211E8006ABC77 /* OpenTabsController.swift */,
+				8567837E2451F13A0044EB84 /* Assets.xcassets */,
+				856783802451F13A0044EB84 /* Info.plist */,
+			);
+			path = "DuckDuckWatch Extension";
 			sourceTree = "<group>";
 		};
 		8595BF491FE847EB00F692EC /* ios-js-support */ = {
@@ -2620,6 +2708,7 @@
 		F1AA545F1E48D90700223211 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85887A3B24521232006ABC77 /* WatchKit.framework */,
 				851B129F222440B3004781BC /* EasyTipView.framework */,
 				8537243F220C5BB3009D09CD /* Punycode.framework */,
 				85371D252121BA2800920548 /* Lottie.framework */,
@@ -2963,6 +3052,7 @@
 				F10307651E7D5B2C0059FEC7 /* Copy Frameworks */,
 				F17BA4411F1CD9D300460FFA /* Cathage Copy Frameworks */,
 				83E282AC20BC1840005FBE88 /* Embed App Extensions */,
+				856783842451F13A0044EB84 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -2971,6 +3061,7 @@
 				8390447520BDCE10006461CD /* PBXTargetDependency */,
 				837094392142C4C200A58838 /* PBXTargetDependency */,
 				83491191217F491200610F35 /* PBXTargetDependency */,
+				856783822451F13A0044EB84 /* PBXTargetDependency */,
 			);
 			name = DuckDuckGo;
 			productName = DuckDuckGo;
@@ -3013,6 +3104,40 @@
 			productName = UITests;
 			productReference = 8512BCB320612E500085E862 /* UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		856783682451F1360044EB84 /* DuckDuckWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8567838B2451F13A0044EB84 /* Build configuration list for PBXNativeTarget "DuckDuckWatch" */;
+			buildPhases = (
+				856783672451F1360044EB84 /* Resources */,
+				856783872451F13A0044EB84 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				856783782451F1390044EB84 /* PBXTargetDependency */,
+			);
+			name = DuckDuckWatch;
+			productName = DuckDuckWatch;
+			productReference = 856783692451F1360044EB84 /* DuckDuckWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		856783742451F1390044EB84 /* DuckDuckWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8567838A2451F13A0044EB84 /* Build configuration list for PBXNativeTarget "DuckDuckWatch Extension" */;
+			buildPhases = (
+				856783712451F1390044EB84 /* Sources */,
+				856783722451F1390044EB84 /* Frameworks */,
+				856783732451F1390044EB84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DuckDuckWatch Extension";
+			productName = "DuckDuckWatch Extension";
+			productReference = 856783752451F1390044EB84 /* DuckDuckWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 		85CC936A203C402C00690089 /* SpeedTests */ = {
 			isa = PBXNativeTarget;
@@ -3090,7 +3215,7 @@
 		84E3418A1E2F7EFB00BDBA6F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = DuckDuckGo;
 				TargetAttributes = {
@@ -3164,6 +3289,17 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 84E341911E2F7EFB00BDBA6F;
 					};
+					856783682451F1360044EB84 = {
+						CreatedOnToolsVersion = 11.4;
+						DevelopmentTeam = HKE973VLUW;
+						LastSwiftMigration = 1140;
+						ProvisioningStyle = Automatic;
+					};
+					856783742451F1390044EB84 = {
+						CreatedOnToolsVersion = 11.4;
+						DevelopmentTeam = HKE973VLUW;
+						ProvisioningStyle = Automatic;
+					};
 					85CC936A203C402C00690089 = {
 						CreatedOnToolsVersion = 9.2;
 						DevelopmentTeam = HKE973VLUW;
@@ -3229,6 +3365,8 @@
 				83DBCA771F7BBB5000DFD170 /* TopSitesReport */,
 				8512BCB220612E500085E862 /* UITests */,
 				98A54A8022AFCB2C00E541F4 /* Instruments */,
+				856783682451F1360044EB84 /* DuckDuckWatch */,
+				856783742451F1390044EB84 /* DuckDuckWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -3398,6 +3536,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856783672451F1360044EB84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8567836F2451F1390044EB84 /* Assets.xcassets in Resources */,
+				8567836D2451F1360044EB84 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		856783732451F1390044EB84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8567837F2451F13A0044EB84 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3934,6 +4089,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		856783712451F1390044EB84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85887A3C24521267006ABC77 /* OpenTabsController.swift in Sources */,
+				8567837D2451F1390044EB84 /* ExtensionDelegate.swift in Sources */,
+				8567837B2451F1390044EB84 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		85CC9367203C402C00690089 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4090,6 +4255,16 @@
 			target = 84E341911E2F7EFB00BDBA6F /* DuckDuckGo */;
 			targetProxy = 8512BCB820612E500085E862 /* PBXContainerItemProxy */;
 		};
+		856783782451F1390044EB84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 856783742451F1390044EB84 /* DuckDuckWatch Extension */;
+			targetProxy = 856783772451F1390044EB84 /* PBXContainerItemProxy */;
+		};
+		856783822451F13A0044EB84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 856783682451F1360044EB84 /* DuckDuckWatch */;
+			targetProxy = 856783812451F13A0044EB84 /* PBXContainerItemProxy */;
+		};
 		85CC9371203C402C00690089 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 84E341911E2F7EFB00BDBA6F /* DuckDuckGo */;
@@ -4167,6 +4342,14 @@
 				84E3419F1E2F7EFB00BDBA6F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8567836B2451F1360044EB84 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8567836C2451F1360044EB84 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 		F176699D1E40BC86003D3222 /* Settings.storyboard */ = {
@@ -4536,10 +4719,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DuckDuckGo/DuckDuckGo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = HKE973VLUW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -4560,9 +4743,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DuckDuckGo/DuckDuckGo.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = HKE973VLUW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -4654,6 +4837,121 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = DuckDuckGo;
+			};
+			name = Release;
+		};
+		856783852451F13A0044EB84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HKE973VLUW;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = DuckDuckWatch_Extension;
+				INFOPLIST_FILE = DuckDuckWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.mobile.ios.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DuckDuckWatch/DuckDuckWatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		856783862451F13A0044EB84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HKE973VLUW;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = DuckDuckWatch_Extension;
+				INFOPLIST_FILE = DuckDuckWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.mobile.ios.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DuckDuckWatch/DuckDuckWatch-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		856783882451F13A0044EB84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HKE973VLUW;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "DuckDuckWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.mobile.ios.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		856783892451F13A0044EB84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HKE973VLUW;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "DuckDuckWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.mobile.ios.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALID_ARCHS = "$(ARCHS_STANDARD)";
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
 			};
 			name = Release;
 		};
@@ -4911,6 +5209,24 @@
 			buildConfigurations = (
 				8512BCBB20612E500085E862 /* Debug */,
 				8512BCBC20612E500085E862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8567838A2451F13A0044EB84 /* Build configuration list for PBXNativeTarget "DuckDuckWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				856783882451F13A0044EB84 /* Debug */,
+				856783892451F13A0044EB84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8567838B2451F13A0044EB84 /* Build configuration list for PBXNativeTarget "DuckDuckWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				856783852451F13A0044EB84 /* Debug */,
+				856783862451F13A0044EB84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

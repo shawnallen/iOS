@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="proximanova-semibold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="DuckDuckWatch" customModuleProvider="target">
+                    <items>
+                        <imageView width="60" height="60" alignment="center" image="circle-dax" id="hch-5h-dNy">
+                            <variation key="device=watch44mm" height="75" width="75"/>
+                        </imageView>
+                        <label alignment="center" text="DuckDuckGo" textAlignment="center" id="mmc-ED-gLl">
+                            <fontDescription key="font" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="22"/>
+                        </label>
+                        <group alignment="center" verticalAlignment="bottom" id="nm8-q7-49Z">
+                            <items>
+                                <button width="54" alignment="left" verticalAlignment="bottom" title="🔥 " id="kha-WN-a3a">
+                                    <connections>
+                                        <segue destination="Zko-ZQ-w7d" kind="modal" id="yEj-qn-NoD"/>
+                                    </connections>
+                                </button>
+                                <separator alignment="left" id="wqB-av-7aR">
+                                    <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </separator>
+                                <separator alignment="left" id="HLh-aO-4d3">
+                                    <color key="color" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </separator>
+                                <button width="54" alignment="left" verticalAlignment="bottom" title="🔎" id="CVa-S9-OLe">
+                                    <connections>
+                                        <segue destination="9c7-oW-MAt" kind="modal" id="hvi-li-Ab2"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <segue destination="yrc-u7-RY4" kind="relationship" relationship="nextPage" id="6kB-n6-GkZ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-323" y="-149"/>
+        </scene>
+        <!--Open Tabs Controller-->
+        <scene sceneID="J5l-04-V8u">
+            <objects>
+                <controller id="yrc-u7-RY4" customClass="OpenTabsController" customModule="DuckDuckWatch_Extension">
+                    <items>
+                        <label alignment="left" text="Open Tabs" id="iy3-Ia-N5T">
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <table alignment="left" id="eYt-Hw-gSZ">
+                            <items>
+                                <tableRow identifier="TabDetail" id="h9r-Er-HzY">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="3" id="AoL-0S-Nem">
+                                        <items>
+                                            <label alignment="left" text="Merkel warns German is 'on the thinnest ice'" id="SHs-w0-zmM">
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                <variation key="device=watch42mm">
+                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                </variation>
+                                                <variation key="device=watch44mm">
+                                                    <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                                                </variation>
+                                            </label>
+                                            <group height="22" alignment="left" spacing="6" id="GqH-2s-Y2l">
+                                                <items>
+                                                    <imageView width="22" height="22" alignment="left" verticalAlignment="center" image="cnn-icon" id="G0Y-OK-6WK"/>
+                                                    <label alignment="left" verticalAlignment="center" text="cnn.com" id="07v-RG-cXF">
+                                                        <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="3" right="0.0" top="3" bottom="4"/>
+                                        <variation key="device=watch40mm" spacing="6"/>
+                                        <variation key="device=watch42mm" spacing="6"/>
+                                        <variation key="device=watch44mm" spacing="8"/>
+                                        <connections>
+                                            <segue destination="9K3-jv-Zmv" kind="push" id="xRr-hS-YeS"/>
+                                        </connections>
+                                    </group>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="eYt-Hw-gSZ" id="iZk-dg-uBp"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="42" y="-149"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="cDt-uW-6n1">
+            <objects>
+                <controller id="9K3-jv-Zmv">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="ayl-6d-Tuu">
+                            <items>
+                                <label alignment="left" text="Merkel warns German is 'on the thinnest ice'" numberOfLines="0" id="gcp-vl-7Hs">
+                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                </label>
+                                <group height="22" alignment="left" spacing="6" id="ms4-p1-4j2">
+                                    <items>
+                                        <imageView width="22" height="22" alignment="left" verticalAlignment="center" image="cnn-icon" id="h9x-zX-pED"/>
+                                        <label alignment="left" verticalAlignment="center" text="cnn.com" id="56J-c9-54U">
+                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Bookmark" id="Rnk-lA-b0Q"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Close Tab" id="G8h-gB-Eo1"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="415" y="-149"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="eX9-cj-x7K">
+            <objects>
+                <controller id="Zko-ZQ-w7d">
+                    <items>
+                        <label alignment="center" text="Clear tabs and clear data when you next open the app?" textAlignment="center" numberOfLines="0" id="HH0-Qx-CxE">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Clear" id="pNE-iG-hZ1">
+                            <color key="backgroundColor" red="0.91400000000000003" green="0.35299999999999998" blue="0.29799999999999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-589" y="313"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="K1q-q7-Y1F">
+            <objects>
+                <controller id="9c7-oW-MAt">
+                    <items>
+                        <textField width="1" alignment="left" verticalAlignment="center" placeholder="🔍 Search" id="cLy-5l-tM3"/>
+                        <label alignment="left" text="Open search in tab later" numberOfLines="0" id="y8K-Bg-Ai7">
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Save" id="h1l-4U-GEL">
+                            <color key="backgroundColor" red="0.4039215686" green="0.56078431370000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-167" y="313"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="circle-dax" width="100" height="100"/>
+        <image name="cnn-icon" width="83" height="84"/>
+    </resources>
+</document>
