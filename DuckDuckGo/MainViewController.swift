@@ -300,7 +300,7 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func onFirePressed() {
-        Pixel.fire(pixel: .forgetAllPressedBrowsing, withAdditionalParameters: PreserveLogins.shared.forgetAllPixelParameters)
+        Pixel.fire(pixel: .forgetAllPressedBrowsing)
 
         let alert = ForgetDataAlert.buildAlert(forgetTabsAndDataHandler: { [weak self] in
             guard let self = self else { return }
@@ -310,12 +310,10 @@ class MainViewController: UIViewController {
     }
     
     func onQuickFirePressed() {
-        PreserveLoginsAlert.showInitialPromptIfNeeded(usingController: self) {
-            self.forgetAllWithAnimation {}
-            self.dismiss(animated: true)
-            if KeyboardSettings().onAppLaunch {
-                self.enterSearch()
-            }
+        self.forgetAllWithAnimation {}
+        self.dismiss(animated: true)
+        if KeyboardSettings().onAppLaunch {
+            self.enterSearch()
         }
     }
 
@@ -627,7 +625,7 @@ class MainViewController: UIViewController {
     
     func updateFindInPage() {
         currentTab?.findInPage?.delegate = self
-        findInPageView.update(with: currentTab?.findInPage)
+        findInPageView.update(with: currentTab?.findInPage, updateTextField: true)
     }
         
 }
@@ -635,7 +633,7 @@ class MainViewController: UIViewController {
 extension MainViewController: FindInPageDelegate {
     
     func updated(findInPage: FindInPage) {
-        findInPageView.update(with: findInPage)
+        findInPageView.update(with: findInPage, updateTextField: false)
     }
 
 }
@@ -1074,7 +1072,7 @@ extension MainViewController: AutoClearWorker {
     
     fileprivate func forgetAllWithAnimation(completion: @escaping () -> Void) {
         let spid = Instruments.shared.startTimedEvent(.clearingData)
-        Pixel.fire(pixel: .forgetAllExecuted, withAdditionalParameters: PreserveLogins.shared.forgetAllPixelParameters)
+        Pixel.fire(pixel: .forgetAllExecuted)
 
         let group = DispatchGroup()
         group.enter()
@@ -1098,7 +1096,6 @@ extension MainViewController: AutoClearWorker {
                 completion()
             }
         }
-
     }
     
 }

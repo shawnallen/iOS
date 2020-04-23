@@ -1,1 +1,2 @@
-• In this release we added a quick way to get official information and tips about COVID-19.
+• Now the app can prompt you to Fireproof a site when you sign in. Enable this in Settings > Fireproof Websites.
+• Bug fixes and other improvements.
