@@ -55,11 +55,10 @@ class FireAnimation: UIView {
 
             print("***", anim?.size as Any)
             let animView = AnimationView(animation: anim)
-
-            animView.frame = window.frame
-
             animView.imageProvider = provider
             animView.textProvider = provider
+            animView.contentMode = .scaleAspectFill
+            animView.frame = window.bounds
             window.addSubview(animView)
 
             animView.play(fromFrame: 0, toFrame: 35, loopMode: .playOnce) { _ in
