@@ -24,9 +24,9 @@ import Device
 
 class SettingsViewController: UITableViewController {
 
-    @IBOutlet weak var animationToggle: UISwitch!
-
     @IBOutlet var margins: [NSLayoutConstraint]!
+
+    @IBOutlet weak var animationAccessoryText: UILabel!
     @IBOutlet weak var themeAccessoryText: UILabel!
     @IBOutlet weak var appIconCell: UITableViewCell!
     @IBOutlet weak var appIconImageView: UIImageView!
@@ -66,15 +66,15 @@ class SettingsViewController: UITableViewController {
         configureUniversalLinksToggle()
         configureLinkPreviewsToggle()
         configureRememberLogins()
+        configureAnimationAccessory()
 
-        configureAnimationToggle()
-        
         applyTheme(ThemeManager.shared.currentTheme)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        configureAnimationAccessory()
         configureAutoClearCellAccessory()
         configureRememberLogins()
         configureHomePageCellAccessory()
@@ -125,6 +125,10 @@ class SettingsViewController: UITableViewController {
         }
     }
 
+    private func configureAnimationAccessory() {
+        animationAccessoryText.text = AnimationSettings().animation == 0 ? "🔥" : "⚡️"
+    }
+
     private func configureMargins() {
         guard #available(iOS 11, *) else { return }
         for margin in margins {
@@ -132,14 +136,6 @@ class SettingsViewController: UITableViewController {
         }
     }
 
-    @IBAction func onAnimationToggle() {
-        AnimationSettings().animation = animationToggle.isOn ? 0 : -1
-    }
-
-    private func configureAnimationToggle() {
-        animationToggle.isOn = AnimationSettings().animation >= 0
-    }
-    
     private func configureThemeCellAccessory() {
         switch appSettings.currentThemeName {
         case .systemDefault:
@@ -287,7 +283,6 @@ extension SettingsViewController: Themable {
         
         versionText.textColor = theme.tableCellTextColor
 
-        animationToggle.onTintColor = theme.buttonTintColor
         autocompleteToggle.onTintColor = theme.buttonTintColor
         authenticationToggle.onTintColor = theme.buttonTintColor
         openUniversalLinksToggle.onTintColor = theme.buttonTintColor
