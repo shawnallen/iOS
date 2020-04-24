@@ -26,7 +26,8 @@ class ContentBlockerStringCacheTests: XCTestCase {
         
         let fileManager = FileManager.default
         let groupName = ContentBlockerStoreConstants.groupName
-        let cacheDir = fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupName)!.appendingPathComponent("string-cache")
+        // let cacheDir = fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupName)!.appendingPathComponent("string-cache")
+        let cacheDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("string-cache")
         try? fileManager.createDirectory(at: cacheDir, withIntermediateDirectories: true, attributes: nil)
         let file = cacheDir.appendingPathComponent("test")
     

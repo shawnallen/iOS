@@ -39,7 +39,8 @@ public class FileStore {
     /// Removes files listed in `Constants.legacyFiles`
     ///
     public func removeLegacyData() {
-        let path = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupIdentifier)
+//        let path = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupIdentifier)
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         Constants.legacyFiles.forEach {
             try? FileManager.default.removeItem(at: path!.appendingPathComponent($0))
         }
@@ -77,7 +78,8 @@ public class FileStore {
     }
 
     func persistenceLocation(forConfiguration config: ContentBlockerRequest.Configuration) -> URL {
-        let path = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupIdentifier)
+        // let path = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: groupIdentifier)
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         return path!.appendingPathComponent(config.rawValue)
     }
 

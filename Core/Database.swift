@@ -113,7 +113,7 @@ extension NSManagedObjectContext {
 private class DDGPersistentContainer: NSPersistentContainer {
 
     override public class func defaultDirectoryURL() -> URL {
-        
-        return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Database.Constants.databaseGroupID)!
-    } 
+        // return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Database.Constants.databaseGroupID)!
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    }
 }

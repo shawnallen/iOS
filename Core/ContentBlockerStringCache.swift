@@ -24,7 +24,8 @@ public class ContentBlockerStringCache {
     public static func removeLegacyData() {
         let fileManager = FileManager.default
         let groupName = ContentBlockerStoreConstants.groupName
-        let cacheDir = fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupName)!.appendingPathComponent("string-cache")
+        // let cacheDir = fileManager.containerURL(forSecurityApplicationGroupIdentifier: groupName)!.appendingPathComponent("string-cache")
+        let cacheDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("string-cache")
         try? fileManager.removeItem(atPath: cacheDir.path)
     }
 

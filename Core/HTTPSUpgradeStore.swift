@@ -46,7 +46,8 @@ public class HTTPSUpgradePersistence: HTTPSUpgradeStore {
     }
     
     private var bloomFilterPath: URL {
-        let path = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: ContentBlockerStoreConstants.groupName)
+//        let path = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: ContentBlockerStoreConstants.groupName)
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         return path!.appendingPathComponent("HttpsBloomFilter.bin")
     }
     

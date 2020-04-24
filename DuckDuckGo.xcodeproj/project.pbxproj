@@ -34,7 +34,6 @@
 		83491188217F491200610F35 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AA54601E48D90700223211 /* NotificationCenter.framework */; };
 		8349118B217F491200610F35 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349118A217F491200610F35 /* TodayViewController.swift */; };
 		8349118E217F491200610F35 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8349118C217F491200610F35 /* MainInterface.storyboard */; };
-		83491192217F491200610F35 /* BookmarksTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 83491187217F491200610F35 /* BookmarksTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		83491197217F49AF00610F35 /* BookmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83491196217F49AF00610F35 /* BookmarkCell.swift */; };
 		83491199217F4AF000610F35 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F143C2E41E4A4CD400CFDE3A /* Core.framework */; };
 		8349119A217F4B0700610F35 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F17BA43A1F1CD99800460FFA /* Kingfisher.framework */; };
@@ -47,7 +46,6 @@
 		837094302142C4C200A58838 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1AA54601E48D90700223211 /* NotificationCenter.framework */; };
 		837094332142C4C200A58838 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837094322142C4C200A58838 /* TodayViewController.swift */; };
 		837094362142C4C200A58838 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 837094342142C4C200A58838 /* MainInterface.storyboard */; };
-		8370943A2142C4C200A58838 /* QuickActionsTodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8370942F2142C4C200A58838 /* QuickActionsTodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8370943E2142C50B00A58838 /* proximanova-bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1EEAC481EAFC708006128D9 /* proximanova-bold.otf */; };
 		8370943F2142C50B00A58838 /* proximanova-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1EEAC491EAFC708006128D9 /* proximanova-light.otf */; };
 		837094402142C50B00A58838 /* proximanova-regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = F1EEAC4A1EAFC708006128D9 /* proximanova-regular.otf */; };
@@ -58,7 +56,6 @@
 		838306E320C733010045E854 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 838306E120C733010045E854 /* InfoPlist.strings */; };
 		8390446F20BDCE10006461CD /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8390446E20BDCE10006461CD /* ShareViewController.swift */; };
 		8390447220BDCE10006461CD /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8390447020BDCE10006461CD /* MainInterface.storyboard */; };
-		8390447620BDCE10006461CD /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8390446C20BDCE10006461CD /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		83A23D6320DC330000051F39 /* Feedback.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A23D6220DC330000051F39 /* Feedback.storyboard */; };
 		83B8BDAF20AB14A70076D6A1 /* APIHeadersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B8BDAD20AB0DA90076D6A1 /* APIHeadersTests.swift */; };
 		83BE9BC3215D69C1009844D9 /* AppConfigurationFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BE9BC2215D69C1009844D9 /* AppConfigurationFetch.swift */; };
@@ -523,33 +520,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		83491190217F491200610F35 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 83491186217F491200610F35;
-			remoteInfo = BookmarksTodayExtension;
-		};
 		836B6B6C1F67F11E0061ECFB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 84E341911E2F7EFB00BDBA6F;
 			remoteInfo = DuckDuckGo;
-		};
-		837094382142C4C200A58838 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8370942E2142C4C200A58838;
-			remoteInfo = QuickActionsTodayExtension;
-		};
-		8390447420BDCE10006461CD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8390446B20BDCE10006461CD;
-			remoteInfo = ShareExtension;
 		};
 		83DBCA7D1F7BBB5000DFD170 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -596,19 +572,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		83E282AC20BC1840005FBE88 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				83491192217F491200610F35 /* BookmarksTodayExtension.appex in Embed App Extensions */,
-				8370943A2142C4C200A58838 /* QuickActionsTodayExtension.appex in Embed App Extensions */,
-				8390447620BDCE10006461CD /* ShareExtension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F10307651E7D5B2C0059FEC7 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2974,15 +2937,11 @@
 				F143C2F01E4A4CD400CFDE3A /* Embed Frameworks */,
 				F10307651E7D5B2C0059FEC7 /* Copy Frameworks */,
 				F17BA4411F1CD9D300460FFA /* Cathage Copy Frameworks */,
-				83E282AC20BC1840005FBE88 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F143C2EA1E4A4CD400CFDE3A /* PBXTargetDependency */,
-				8390447520BDCE10006461CD /* PBXTargetDependency */,
-				837094392142C4C200A58838 /* PBXTargetDependency */,
-				83491191217F491200610F35 /* PBXTargetDependency */,
 			);
 			name = DuckDuckGo;
 			productName = DuckDuckGo;
@@ -4071,25 +4030,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		83491191217F491200610F35 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 83491186217F491200610F35 /* BookmarksTodayExtension */;
-			targetProxy = 83491190217F491200610F35 /* PBXContainerItemProxy */;
-		};
 		836B6B6D1F67F11E0061ECFB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 84E341911E2F7EFB00BDBA6F /* DuckDuckGo */;
 			targetProxy = 836B6B6C1F67F11E0061ECFB /* PBXContainerItemProxy */;
-		};
-		837094392142C4C200A58838 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8370942E2142C4C200A58838 /* QuickActionsTodayExtension */;
-			targetProxy = 837094382142C4C200A58838 /* PBXContainerItemProxy */;
-		};
-		8390447520BDCE10006461CD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8390446B20BDCE10006461CD /* ShareExtension */;
-			targetProxy = 8390447420BDCE10006461CD /* PBXContainerItemProxy */;
 		};
 		83DBCA7E1F7BBB5000DFD170 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
