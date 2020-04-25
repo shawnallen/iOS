@@ -71,15 +71,19 @@ class FireAnimation: UIView {
 
         let settings = AnimationSettings()
 
+        let removalFrame: AnimationFrameTime
         let anim: Animation
         if settings.animation == -1 {
             anim = lightningAnim
+            removalFrame = 25
         } else if settings.animation >= 3 {
             anim = dinoAnim
             settings.animation = 0
+            removalFrame = 45
         } else {
             anim = fireAnim
             settings.animation += 1
+            removalFrame = 35
         }
 
         let animView = AnimationView(animation: anim)
@@ -89,20 +93,12 @@ class FireAnimation: UIView {
         animView.frame = window.bounds
         window.addSubview(animView)
 
-        if anim === fireAnim {
-            animView.play(fromFrame: 0, toFrame: 35, loopMode: .playOnce) { _ in
-                animView.play(fromFrame: 35, toFrame: 60, loopMode: .playOnce) { _ in
-                    animView.removeFromSuperview()
-                    completion()
-                }
-                snapshot.removeFromSuperview()
-            }
-        } else {
-            animView.play { _ in
+        animView.play(fromFrame: 0, toFrame: removalFrame, loopMode: .playOnce) { _ in
+            animView.play(fromFrame: removalFrame, toFrame: anim.endFrame, loopMode: .playOnce) { _ in
                 animView.removeFromSuperview()
                 completion()
-                snapshot.removeFromSuperview()
             }
+            snapshot.removeFromSuperview()
         }
 
     }

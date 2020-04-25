@@ -126,7 +126,7 @@ class SettingsViewController: UITableViewController {
     }
 
     private func configureAnimationAccessory() {
-        animationAccessoryText.text = AnimationSettings().animation == 0 ? "🔥" : "⚡️"
+        animationAccessoryText.text = AnimationSettings().animation < 0 ? "⚡️" : "🔥"
     }
 
     private func configureMargins() {
