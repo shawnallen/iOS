@@ -1,3 +1,2 @@
-• Adding a bookmark is now a one-step process.
-• We display full desktop websites on iPad.
-• Other bug fixes and improvements.
+• Now the app can prompt you to Fireproof a site when you sign in. Enable this in Settings > Fireproof Websites.
+• Bug fixes and other improvements.

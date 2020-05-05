@@ -1,8 +1,8 @@
 //
-//  NavigationSearchHomeCell.swift
+//  SearchFieldContainerView.swift
 //  DuckDuckGo
 //
-//  Copyright © 2018 DuckDuckGo. All rights reserved.
+//  Copyright © 2020 DuckDuckGo. All rights reserved.
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -19,21 +19,18 @@
 
 import UIKit
 
-class NavigationSearchHomeCell: UICollectionViewCell {
+class SearchFieldContainerView: UIView {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var verticalConstraint: NSLayoutConstraint!
-}
-
-extension NavigationSearchHomeCell: Themable {
+    @IBOutlet var privacyViewWidth: NSLayoutConstraint!
+    @IBOutlet var textFieldOffset: NSLayoutConstraint!
     
-    func decorate(with theme: Theme) {
-        switch theme.currentImageSet {
-        case .light:
-            imageView.image = UIImage(named: "LogoDarkText")
-        case .dark:
-            imageView.image = UIImage(named: "LogoLightText")
-        }
+    func hideSiteRatingView() {
+        privacyViewWidth.constant = 0
+        textFieldOffset.constant = 0
     }
     
+    func revealSiteRatingView() {
+        privacyViewWidth.constant = 150
+        textFieldOffset.constant = 30
+    }
 }

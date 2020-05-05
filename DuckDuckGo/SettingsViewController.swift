@@ -44,7 +44,6 @@ class SettingsViewController: UITableViewController {
     @IBOutlet var accessoryLabels: [UILabel]!
     
     weak var homePageSettingsDelegate: HomePageSettingsDelegate?
-    weak var preserveLoginsSettingsDelegate: PreserveLoginsSettingsDelegate?
 
     private lazy var versionProvider: AppVersion = AppVersion.shared
     fileprivate lazy var privacyStore = PrivacyUserDefaults()
@@ -79,11 +78,6 @@ class SettingsViewController: UITableViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let controller = segue.destination as? PreserveLoginsSettingsViewController {
-            controller.delegate = preserveLoginsSettingsDelegate
-            return
-        }
-
         if segue.destination is AutoClearSettingsViewController {
             Pixel.fire(pixel: .autoClearSettingsShown)
             return
@@ -184,24 +178,11 @@ class SettingsViewController: UITableViewController {
     }
     
     private func configureRememberLogins() {
-        
         if #available(iOS 13, *) {
-            rememberLoginsCell.isHidden = false
-            
-            switch PreserveLogins.shared.userDecision {
-                
-            case .preserveLogins:
-                rememberLoginsAccessoryText.text = UserText.preserveLoginsAccessoryOn
-                
-            case .forgetAll, .unknown:
-                rememberLoginsAccessoryText.text = UserText.preserveLoginsAccessoryOff
-                
-            }
-            
+            rememberLoginsAccessoryText.text = PreserveLogins.shared.allowedDomains.isEmpty ? "" : "\(PreserveLogins.shared.allowedDomains.count)"
         } else {
             rememberLoginsCell.isHidden = true
-        }
-        
+        }        
     }
 
     private func configureVersionText() {
