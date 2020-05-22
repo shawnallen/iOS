@@ -353,6 +353,8 @@
 		98FA4BB52440AA1A00894CD8 /* TrackersAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA4BB42440AA1A00894CD8 /* TrackersAnimator.swift */; };
 		98FA4BB72440D0A800894CD8 /* PrivacyProtectionIconSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA4BB62440D0A800894CD8 /* PrivacyProtectionIconSource.swift */; };
 		98FD3E2823A3010C005ABD42 /* ios12-home-row.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 98FD3E2723A3010C005ABD42 /* ios12-home-row.mp4 */; };
+		AA3B9BE32477DE8000C52A73 /* PrivacyGrade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */; };
+		AA3B9BE42477DE8000C52A73 /* PrivacyGrade.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA3D854523D9942200788410 /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D854423D9942200788410 /* AppIconSettingsViewController.swift */; };
 		AA3D854723D9E88E00788410 /* AppIconSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D854623D9E88E00788410 /* AppIconSettingsCell.swift */; };
 		AA3D854923DA1DFB00788410 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D854823DA1DFB00788410 /* AppIcon.swift */; };
@@ -595,6 +597,13 @@
 			remoteGlobalIDString = 84E341911E2F7EFB00BDBA6F;
 			remoteInfo = DuckDuckGo;
 		};
+		AA3B9BE82477DF6400C52A73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA3B9BDB2477DE7F00C52A73;
+			remoteInfo = PrivacyGrade;
+		};
 		F143C2E91E4A4CD400CFDE3A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
@@ -636,6 +645,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F143C2EC1E4A4CD400CFDE3A /* Core.framework in Embed Frameworks */,
+				AA3B9BE42477DE8000C52A73 /* PrivacyGrade.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1002,6 +1012,8 @@
 		98FA4BB42440AA1A00894CD8 /* TrackersAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersAnimator.swift; sourceTree = "<group>"; };
 		98FA4BB62440D0A800894CD8 /* PrivacyProtectionIconSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionIconSource.swift; sourceTree = "<group>"; };
 		98FD3E2723A3010C005ABD42 /* ios12-home-row.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ios12-home-row.mp4"; sourceTree = "<group>"; };
+		AA3B9BC52476FF6A00C52A73 /* privacy-grade-multiplatform */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "privacy-grade-multiplatform"; path = "submodules/privacy-grade-multiplatform"; sourceTree = SOURCE_ROOT; };
+		AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrivacyGrade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3D854423D9942200788410 /* AppIconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsViewController.swift; sourceTree = "<group>"; };
 		AA3D854623D9E88E00788410 /* AppIconSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsCell.swift; sourceTree = "<group>"; };
 		AA3D854823DA1DFB00788410 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
@@ -1238,6 +1250,7 @@
 				F143C2EB1E4A4CD400CFDE3A /* Core.framework in Frameworks */,
 				F17BA43D1F1CD99800460FFA /* Device.framework in Frameworks */,
 				F17BA43E1F1CD99800460FFA /* Kingfisher.framework in Frameworks */,
+				AA3B9BE32477DE8000C52A73 /* PrivacyGrade.framework in Frameworks */,
 				F17BA4401F1CD99800460FFA /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1350,6 +1363,7 @@
 		8328AAB0212A3D4F00293140 /* Third-Party */ = {
 			isa = PBXGroup;
 			children = (
+				AA3B9BC52476FF6A00C52A73 /* privacy-grade-multiplatform */,
 				8328AAB1212A3D6800293140 /* bloom_cpp */,
 			);
 			path = "Third-Party";
@@ -1581,6 +1595,7 @@
 				83491187217F491200610F35 /* BookmarksTodayExtension.appex */,
 				98A54A8122AFCB2C00E541F4 /* Instruments.instrdst */,
 				85482D882462DCD100EDEDD1 /* OpenAction.appex */,
+				AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3004,6 +3019,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AA3B9BE92477DF6400C52A73 /* PBXTargetDependency */,
 				F143C2EA1E4A4CD400CFDE3A /* PBXTargetDependency */,
 				8390447520BDCE10006461CD /* PBXTargetDependency */,
 				837094392142C4C200A58838 /* PBXTargetDependency */,
@@ -3120,6 +3136,22 @@
 			productName = Instruments;
 			productReference = 98A54A8122AFCB2C00E541F4 /* Instruments.instrdst */;
 			productType = "com.apple.product-type.instruments-package";
+		};
+		AA3B9BDB2477DE7F00C52A73 /* PrivacyGrade */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA3B9BE52477DE8000C52A73 /* Build configuration list for PBXNativeTarget "PrivacyGrade" */;
+			buildPhases = (
+				AA3B9BEA2477DF7900C52A73 /* Compile with Gradle */,
+				AA3B9BEB2477E7F300C52A73 /* Copy to Build folder */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PrivacyGrade;
+			productName = PrivacyGrade;
+			productReference = AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		F143C2E31E4A4CD400CFDE3A /* Core */ = {
 			isa = PBXNativeTarget;
@@ -3243,6 +3275,11 @@
 						DevelopmentTeam = HKE973VLUW;
 						ProvisioningStyle = Automatic;
 					};
+					AA3B9BDB2477DE7F00C52A73 = {
+						CreatedOnToolsVersion = 11.5;
+						DevelopmentTeam = HKE973VLUW;
+						ProvisioningStyle = Automatic;
+					};
 					F143C2E31E4A4CD400CFDE3A = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = HKE973VLUW;
@@ -3290,6 +3327,7 @@
 				8512BCB220612E500085E862 /* UITests */,
 				98A54A8022AFCB2C00E541F4 /* Instruments */,
 				85482D872462DCD100EDEDD1 /* OpenAction */,
+				AA3B9BDB2477DE7F00C52A73 /* PrivacyGrade */,
 			);
 		};
 /* End PBXProject section */
@@ -3629,6 +3667,42 @@
 			shellPath = /bin/sh;
 			shellScript = "\n[ -z \"$TRAVIS\" ]\n\nif env | grep -q ^TRAVIS=\nthen\n    echo Skipping fonts on TRAVIS build\nelif [ -d ~/DuckDuckGo/Fonts/proximanova ]\nthen\n\n    echo Installing fonts from standard location\n    cp ~/DuckDuckGo/Fonts/proximanova/*.otf \"$SRCROOT/fonts/licensed\"\n\nelif [ ! -d ~/DuckDuckGo/Fonts/proximanova ]\nthen\n                                      \n    echo \"warning: Correct fonts not found, install proximanova fonts at ~/DuckDuckGo/Fonts/proximanova\"\n                                      \nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		AA3B9BEA2477DF7900C52A73 /* Compile with Gradle */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile with Gradle";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Compiling PrivacyGrade.framework with Gradle\"\ncd submodules/privacy-grade-multiplatform\n./gradlew $GRADLE_TASK\n";
+		};
+		AA3B9BEB2477E7F300C52A73 /* Copy to Build folder */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy to Build folder";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Copying PrivacyGrade.framework\"\ncd submodules/privacy-grade-multiplatform\ncp -rf $GRADLE_OUTPUT_PATH/PrivacyGrade.framework $BUILT_PRODUCTS_DIR/\nif [ -e $GRADLE_OUTPUT_PATH/PrivacyGrade.framework.dSYM ]; then\n    cp -rf $GRADLE_OUTPUT_PATH/PrivacyGrade.framework.dSYM $BUILT_PRODUCTS_DIR/\nfi\n";
 		};
 		F17843E61F361B3C00390DCD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4185,6 +4259,11 @@
 			target = 84E341911E2F7EFB00BDBA6F /* DuckDuckGo */;
 			targetProxy = 85F21DB2210F5E32002631A6 /* PBXContainerItemProxy */;
 		};
+		AA3B9BE92477DF6400C52A73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA3B9BDB2477DE7F00C52A73 /* PrivacyGrade */;
+			targetProxy = AA3B9BE82477DF6400C52A73 /* PBXContainerItemProxy */;
+		};
 		F143C2EA1E4A4CD400CFDE3A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F143C2E31E4A4CD400CFDE3A /* Core */;
@@ -4640,6 +4719,9 @@
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRIVACY_GRADE_GRADLE_TASK = "";
+				"PRIVACY_GRADE_GRADLE_TASK[sdk=iphoneos*]" = linkDebugFrameworkIos;
+				"PRIVACY_GRADE_GRADLE_TASK[sdk=iphonesimulator*]" = linkDebugFrameworkIosSimulator;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4663,6 +4745,9 @@
 				INFOPLIST_FILE = DuckDuckGo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRIVACY_GRADE_GRADLE_TASK = "";
+				"PRIVACY_GRADE_GRADLE_TASK[sdk=iphoneos*]" = linkReleaseFrameworkIos;
+				"PRIVACY_GRADE_GRADLE_TASK[sdk=iphonesimulator*]" = linkReleaseFrameworkIosSimulator;
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -4915,6 +5000,81 @@
 			};
 			name = Release;
 		};
+		AA3B9BE62477DE8000C52A73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GRADLE_OUTPUT_PATH = "";
+				"GRADLE_OUTPUT_PATH[sdk=iphoneos*]" = build/bin/ios/debugFramework;
+				"GRADLE_OUTPUT_PATH[sdk=iphonesimulator*]" = build/bin/iosSimulator/debugFramework;
+				GRADLE_TASK = "";
+				"GRADLE_TASK[sdk=iphoneos*]" = linkDebugFrameworkIos;
+				"GRADLE_TASK[sdk=iphonesimulator*]" = linkDebugFrameworkIosSimulator;
+				INFOPLIST_FILE = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.PrivacyGrade;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AA3B9BE72477DE8000C52A73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GRADLE_OUTPUT_PATH = "";
+				"GRADLE_OUTPUT_PATH[sdk=iphoneos*]" = build/bin/ios/releaseFramework;
+				"GRADLE_OUTPUT_PATH[sdk=iphonesimulator*]" = build/bin/iosSimulator/releaseFramework;
+				GRADLE_TASK = "";
+				"GRADLE_TASK[sdk=iphoneos*]" = linkReleaseFrameworkIos;
+				"GRADLE_TASK[sdk=iphonesimulator*]" = linkReleaseFrameworkIosSimulator;
+				INFOPLIST_FILE = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.PrivacyGrade;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F143C2EE1E4A4CD400CFDE3A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -5089,6 +5249,15 @@
 			buildConfigurations = (
 				98A54A8622AFCB2D00E541F4 /* Debug */,
 				98A54A8722AFCB2D00E541F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA3B9BE52477DE8000C52A73 /* Build configuration list for PBXNativeTarget "PrivacyGrade" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA3B9BE62477DE8000C52A73 /* Debug */,
+				AA3B9BE72477DE8000C52A73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
