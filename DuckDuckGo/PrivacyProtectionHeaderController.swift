@@ -19,10 +19,11 @@
 
 import UIKit
 import Core
+import PrivacyGrade
 
 class PrivacyProtectionHeaderController: UIViewController {
 
-    private static let gradesOn: [Grade.Grading: UIImage] = [
+    private static let gradesOn: [PrivacyGrade.Grade: UIImage] = [
         .a: #imageLiteral(resourceName: "PP Grade A On"),
         .bPlus: #imageLiteral(resourceName: "PP Grade B Plus On"),
         .b: #imageLiteral(resourceName: "PP Grade B On"),
@@ -32,7 +33,7 @@ class PrivacyProtectionHeaderController: UIViewController {
         .dMinus: #imageLiteral(resourceName: "PP Grade D On")
         ]
 
-    private static let gradesOff: [Grade.Grading: UIImage] = [
+    private static let gradesOff: [PrivacyGrade.Grade: UIImage] = [
         .a: #imageLiteral(resourceName: "PP Grade A Off"),
         .bPlus: #imageLiteral(resourceName: "PP Grade B Plus Off"),
         .b: #imageLiteral(resourceName: "PP Grade B Off"),
@@ -59,9 +60,9 @@ class PrivacyProtectionHeaderController: UIViewController {
     private func update() {
         guard isViewLoaded else { return }
 
-        let grades = siteRating.scores
+        let scores = siteRating.scores
         let protecting = contentBlockerConfiguration.protecting(domain: siteRating.domain)
-        let grade =  protecting ? grades.enhanced.grade : grades.site.grade
+        let grade =  protecting ? scores.enhanced.grade : scores.site.grade
         gradeImage.image = protecting ? PrivacyProtectionHeaderController.gradesOn[grade] : PrivacyProtectionHeaderController.gradesOff[grade]
 
         siteTitleLabel.text = siteRating.domain
@@ -86,8 +87,8 @@ class PrivacyProtectionHeaderController: UIViewController {
     }
     
     private func differentGrades() -> Bool {
-        let siteGrade = siteRating.scores.site.grade.normalize()
-        let enhancedGrade = siteRating.scores.enhanced.grade.normalize()
+        let siteGrade = siteRating.scores.site.grade.normalized
+        let enhancedGrade = siteRating.scores.enhanced.grade.normalized
         return siteGrade != enhancedGrade
     }
 

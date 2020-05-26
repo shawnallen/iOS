@@ -19,6 +19,7 @@
 
 import XCTest
 @testable import Core
+@testable import PrivacyGrade
 
 class SiteRatingTests: XCTestCase {
 
@@ -188,8 +189,9 @@ class SiteRatingTests: XCTestCase {
     }
     
     func testWhenWorseScoreIsCachedForBeforeScoreItIsUsed() {
-        let scores = Grade.Scores(site: Grade.Score(grade: .d, httpsScore: 0, privacyScore: 0, score: 66, trackerScore: 0),
-                                  enhanced: Grade.Score(grade: .a, httpsScore: 0, privacyScore: 0, score: 0, trackerScore: 0))
+        let siteScore = PrivacyGrade.Score(grade: .d, score: 66, httpsScore: 0, trackerScore: 0, privacyScore: 0)
+        let enhancedScore = PrivacyGrade.Score(grade: .a, score: 0, httpsScore: 0, trackerScore: 0, privacyScore: 0)
+        let scores = PrivacyGrade.Scores.init(site: siteScore, enhanced: enhancedScore)
         
         _ = GradeCache.shared.add(url: Url.https, scores: scores)
         

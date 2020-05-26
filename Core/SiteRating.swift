@@ -19,6 +19,7 @@
 
 import Foundation
 import os.log
+import PrivacyGrade
 
 public class SiteRating {
 
@@ -33,12 +34,12 @@ public class SiteRating {
     public var domain: String? {
         return url.host
     }
-    
-    public var scores: Grade.Scores {
-        if let scores = cache.get(url: url), scores.site.score > grade.scores.site.score {
+
+    public var scores: PrivacyGrade.Scores {
+        if let scores = cache.get(url: url), scores.site.score > gradeCalculator.scores.site.score {
             return scores
         }
-        return grade.scores
+        return gradeCalculator.scores
     }
 
     public let url: URL
@@ -51,10 +52,34 @@ public class SiteRating {
     public private (set) var trackersBlocked = Set<DetectedTracker>()
     public private (set) var installedSurrogates = Set<String>()
     
-    private let grade = Grade()
+    private let gradeCalculator: GradeCalculator
     private let cache = GradeCache.shared
     private let entity: Entity?
-    
+
+    //TODO what about changing Entity to class?
+    class EntityReference: NSObject, PrivacyGrade.Entity {
+        init?(entity: Entity?) {
+            guard let name = entity?.displayName, let prevalence = entity?.prevalence else {
+                return nil
+            }
+            self.name = name
+            self.prevalence = prevalence
+        }
+
+        let prevalence: Double
+        let name: String
+    }
+
+    class TrackerReference: NSObject, PrivacyGrade.Tracker {
+        init(entityReference: EntityReference) {
+            self.entityReference = entityReference
+        }
+
+        let entityReference: EntityReference
+
+        var entity: PrivacyGrade.Entity { return entityReference }
+    }
+
     public init(url: URL,
                 httpsForced: Bool = false,
                 entityMapping: EntityMapping,
@@ -63,7 +88,6 @@ public class SiteRating {
         os_log("new SiteRating(url: %s, httpsForced: %s)", log: lifecycleLog, type: .debug, url.absoluteString, String(describing: httpsForced))
 
         if let host = url.host, let entity = entityMapping.findEntity(forHost: host) {
-            self.grade.setParentEntity(named: entity.displayName ?? "", withPrevalence: entity.prevalence ?? 0)
             self.entity = entity
         } else {
             entity = nil
@@ -76,10 +100,14 @@ public class SiteRating {
         
         // This will change when there is auto upgrade data.  The default is false, but we don't penalise sites at this time so if the url is https
         //  then we assume auto upgrade is available for the purpose of grade scoring.
-        self.grade.httpsAutoUpgrade = url.isHttps()
-        self.grade.https = url.isHttps()
-        self.grade.privacyScore = privacyPractice.score
-        
+        gradeCalculator = GradeCalculator(https: url.isHttps(),
+                                          httpsAutoUpgrade: url.isHttps(),
+                                          privacyPracticesScore: Int64(privacyPractice.score))
+
+        if let entity = entity {
+            let entityReference = EntityReference(entity: entity)
+            gradeCalculator.parentEntity = entityReference
+        }
     }
     
     public var https: Bool {
@@ -124,10 +152,18 @@ public class SiteRating {
         let entity = tracker.entity
         if tracker.blocked {
             trackersBlocked.insert(tracker)
-            grade.addEntityBlocked(named: entity?.displayName ?? "", withPrevalence: entity?.prevalence ?? 0)
+
+            if let entityReference = EntityReference(entity: entity) {
+                let trackerReference = TrackerReference(entityReference: entityReference)
+                gradeCalculator.addTrackerBlocked(tracker: trackerReference)
+            }
         } else {
             trackersDetected.insert(tracker)
-            grade.addEntityNotBlocked(named: entity?.displayName ?? "", withPrevalence: entity?.prevalence ?? 0)
+
+            if let entityReference = EntityReference(entity: entity) {
+                let trackerReference = TrackerReference(entityReference: entityReference)
+                gradeCalculator.addTrackerNotBlocked(tracker: trackerReference)
+            }
         }
     }
     

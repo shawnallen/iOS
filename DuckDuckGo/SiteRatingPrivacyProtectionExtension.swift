@@ -19,6 +19,7 @@
 
 import Foundation
 import Core
+import PrivacyGrade
 
 extension SiteRating {
     
@@ -96,7 +97,7 @@ extension SiteRating {
         return !contentBlocker.domainWhitelist.contains(domain)
     }
     
-    static let gradeImages: [Grade.Grading: UIImage] = [
+    static let gradeImages: [PrivacyGrade.Grade: UIImage] = [
         .a: #imageLiteral(resourceName: "PP Inline A"),
         .bPlus: #imageLiteral(resourceName: "PP Inline B Plus"),
         .b: #imageLiteral(resourceName: "PP Inline B"),

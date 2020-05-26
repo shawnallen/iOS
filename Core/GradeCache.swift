@@ -18,12 +18,13 @@
 //
 
 import Foundation
+import PrivacyGrade
 
 public class GradeCache {
     
     public static let shared = GradeCache()
     
-    private var cachedScores = [String: Grade.Scores]()
+    private var cachedScores = [String: PrivacyGrade.Scores]()
     
     private init() { }
     
@@ -32,11 +33,11 @@ public class GradeCache {
      the new score is higher
      - returns: true if the cache was updated, otherwise false
      */
-    func add(url: URL, scores: Grade.Scores) -> Bool {
+    func add(url: URL, scores: PrivacyGrade.Scores) -> Bool {
         return compareAndSet(url: url, scores: scores)
     }
     
-    private func compareAndSet(url: URL, scores current: Grade.Scores) -> Bool {
+    private func compareAndSet(url: URL, scores current: PrivacyGrade.Scores) -> Bool {
         let key = cacheKey(forUrl: url)
         if let previous = cachedScores[key], previous.site.score > current.site.score {
             return false
@@ -45,13 +46,13 @@ public class GradeCache {
         return true
     }
     
-    func get(url: URL) -> Grade.Scores? {
+    func get(url: URL) -> PrivacyGrade.Scores? {
         let key = cacheKey(forUrl: url)
         return cachedScores[key]
     }
     
     func reset() {
-        cachedScores =  [String: Grade.Scores]()
+        cachedScores =  [String: PrivacyGrade.Scores]()
     }
     
     private func cacheKey(forUrl url: URL) -> String {

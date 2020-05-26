@@ -21,6 +21,7 @@ import Foundation
 
 import UIKit
 import Core
+import PrivacyGrade
 
 public class SiteRatingView: UIView {
     
@@ -29,7 +30,7 @@ public class SiteRatingView: UIView {
         case ready
     }
 
-    static let gradeImages: [Grade.Grading: UIImage] = [
+    static let gradeImages: [PrivacyGrade.Grade: UIImage] = [
         .a: #imageLiteral(resourceName: "PP Indicator Grade A"),
         .bPlus: #imageLiteral(resourceName: "PP Indicator Grade B Plus"),
         .b: #imageLiteral(resourceName: "PP Indicator Grade B"),
@@ -70,17 +71,17 @@ public class SiteRatingView: UIView {
             return
         }
         
-        let grades = siteRating.scores
-        let grade: Grade.Score
+        let scores = siteRating.scores
+        let grade: PrivacyGrade.Grade
         switch mode {
         case .loading:
             circleIndicator.image = PrivacyProtectionIconSource.iconImageTemplate(withString: " ",
                                                                                   iconSize: circleIndicator.bounds.size)
         case .ready:
-            grade = storageCache.configuration.protecting(domain: siteRating.domain) ? grades.enhanced : grades.site
+            grade = storageCache.configuration.protecting(domain: siteRating.domain) ? scores.enhanced.grade : scores.site.grade
             
-            circleIndicator.image = SiteRatingView.gradeImages[grade.grade]
-            circleIndicator.accessibilityHint = UserText.privacyGrade(grade.grade.rawValue.uppercased())
+            circleIndicator.image = SiteRatingView.gradeImages[grade]
+            circleIndicator.accessibilityHint = UserText.privacyGrade(grade.string.uppercased())
         }
     }
 }
