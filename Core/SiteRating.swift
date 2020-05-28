@@ -97,17 +97,15 @@ public class SiteRating {
         self.httpsForced = httpsForced
         self.hasOnlySecureContent = url.isHttps()
         self.privacyPractice = privacyPractices.findPractice(forHost: url.host ?? "")
-        
+
+        let entityReference = EntityReference(entity: entity)
+
         // This will change when there is auto upgrade data.  The default is false, but we don't penalise sites at this time so if the url is https
         //  then we assume auto upgrade is available for the purpose of grade scoring.
         gradeCalculator = GradeCalculator(https: url.isHttps(),
                                           httpsAutoUpgrade: url.isHttps(),
-                                          privacyPracticesScore: Int64(privacyPractice.score))
-
-        if let entity = entity {
-            let entityReference = EntityReference(entity: entity)
-            gradeCalculator.parentEntity = entityReference
-        }
+                                          privacyPracticesScore: KotlinLong(integerLiteral: privacyPractice.score),
+                                          parentEntity: entityReference)
     }
     
     public var https: Bool {

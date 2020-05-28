@@ -189,8 +189,8 @@ class SiteRatingTests: XCTestCase {
     }
     
     func testWhenWorseScoreIsCachedForBeforeScoreItIsUsed() {
-        let siteScore = PrivacyGrade.Score(grade: .d, score: 66, httpsScore: 0, trackerScore: 0, privacyScore: 0)
-        let enhancedScore = PrivacyGrade.Score(grade: .a, score: 0, httpsScore: 0, trackerScore: 0, privacyScore: 0)
+        let siteScore = PrivacyGrade.Score(grade: .d, score: 66, httpsScore: 0, trackerScore: 0, privacyPracticesScore: 0)
+        let enhancedScore = PrivacyGrade.Score(grade: .a, score: 0, httpsScore: 0, trackerScore: 0, privacyPracticesScore: 0)
         let scores = PrivacyGrade.Scores.init(site: siteScore, enhanced: enhancedScore)
         
         _ = GradeCache.shared.add(url: Url.https, scores: scores)
