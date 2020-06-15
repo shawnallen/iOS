@@ -172,6 +172,10 @@
 	<string>Allows you to save images to your device</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Allows you to upload photographs and videos</string>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>PrivateSearchIntent</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>proximanova-extrabold.otf</string>

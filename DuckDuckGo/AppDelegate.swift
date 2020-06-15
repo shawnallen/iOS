@@ -188,9 +188,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             completionHandler(newData ? .newData : .noData)
         }
     }
+    
+    func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
+        return true
+    }
 
+    func application(_ application: UIApplication,
+                     continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        if userActivity.activityType == ActivityTypes.search {
+            handleSearchAction(query: userActivity.userInfo?[ActivityTypes.ParamNames.query] as? String)
+            restorationHandler(nil)
+            return true
+        }
+        return false
+    }
+    
     // MARK: private
 
+    private func handleSearchAction(query: String?) {
+        mainViewController?.newTab(query: query)
+    }
+    
     private func initialiseBackgroundFetch(_ application: UIApplication) {
         application.setMinimumBackgroundFetchInterval(60 * 60 * 24)
     }

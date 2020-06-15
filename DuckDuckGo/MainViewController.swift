@@ -376,10 +376,9 @@ class MainViewController: UIViewController {
     }
     
     func enterSearch() {
-        if presentedViewController == nil {
-            showBars()
-            omniBar.becomeFirstResponder()
-        }
+        guard presentedViewController == nil else { return }
+        showBars()
+        omniBar.becomeFirstResponder()
     }
 
     fileprivate func loadQuery(_ query: String) {
@@ -643,11 +642,19 @@ class MainViewController: UIViewController {
         toolbar.setItems(newItems, animated: false)
     }
 
-    func newTab() {
-        currentTab?.dismiss()
-        tabManager.addHomeTab()
-        attachHomeScreen()
-        homeController?.openedAsNewTab()
+    func newTab(query: String? = nil) {
+        
+        if let query = query, !query.isEmpty {
+            // TODO if there's only one tab and it's the home screen, just load the query
+            loadQueryInNewTab(query)
+        } else {
+            // TODO validate
+            currentTab?.dismiss()
+            tabManager.addHomeTab()
+            attachHomeScreen()
+            homeController?.openedAsNewTab()
+        }
+        
     }
     
     func updateFindInPage() {
