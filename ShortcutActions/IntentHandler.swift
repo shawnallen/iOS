@@ -7,7 +7,6 @@
 //
 
 import Intents
-import Core
 
 class IntentHandler: INExtension {
     
