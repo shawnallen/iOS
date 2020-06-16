@@ -336,11 +336,13 @@ class MainViewController: UIViewController {
         self.present(controller: alert, fromView: self.toolbar)
     }
     
-    func onQuickFirePressed() {
-        self.forgetAllWithAnimation {}
-        self.dismiss(animated: true)
-        if KeyboardSettings().onAppLaunch {
-            self.enterSearch()
+    func onQuickFirePressed(completion: (() -> Void)? = nil) {
+        self.forgetAllWithAnimation {
+            completion?()
+            self.dismiss(animated: true)
+            if KeyboardSettings().onAppLaunch {
+                self.enterSearch()
+            }
         }
     }
 
@@ -645,10 +647,12 @@ class MainViewController: UIViewController {
     func newTab(query: String? = nil) {
         
         if let query = query, !query.isEmpty {
-            // TODO if there's only one tab and it's the home screen, just load the query
-            loadQueryInNewTab(query)
+            if tabManager.count == 1 && homeController != nil {
+                loadQuery(query)
+            } else {
+                loadQueryInNewTab(query)
+            }
         } else {
-            // TODO validate
             currentTab?.dismiss()
             tabManager.addHomeTab()
             attachHomeScreen()

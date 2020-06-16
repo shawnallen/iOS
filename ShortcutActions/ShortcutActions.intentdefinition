@@ -30,10 +30,10 @@
 			<key>INIntentKeyParameter</key>
 			<string>query</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>1</integer>
+			<integer>3</integer>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
-				<key>query</key>
+				<key>query,clearData</key>
 				<dict>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
@@ -49,16 +49,18 @@
 			<string>PrivateSearch</string>
 			<key>INIntentParameterCombinations</key>
 			<dict>
-				<key>query</key>
+				<key>query,clearData</key>
 				<dict>
 					<key>INIntentParameterCombinationIsLinked</key>
+					<true/>
+					<key>INIntentParameterCombinationIsPrimary</key>
 					<true/>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
 					<key>INIntentParameterCombinationTitle</key>
 					<string>Search privately with DuckDuckGo for ${query}</string>
 					<key>INIntentParameterCombinationTitleID</key>
-					<string>xYtHN6</string>
+					<string>33SCM0</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>
@@ -96,6 +98,46 @@
 					<integer>1</integer>
 					<key>INIntentParameterType</key>
 					<string>String</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterDisplayName</key>
+					<string>Close tabs and clear data first</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>VbfLn0</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>Yes</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>usWdFF</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>No</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>HL6UiE</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>clearData</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Clear tabs and data first?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>Pd5iYD</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>3</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
 				</dict>
 			</array>
 			<key>INIntentResponse</key>

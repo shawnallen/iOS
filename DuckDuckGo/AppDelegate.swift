@@ -172,10 +172,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else if AppDeepLinks.isBookmarks(url: url) {
             mainViewController?.onBookmarksPressed()
         } else if AppDeepLinks.isFire(url: url) {
-            if !privacyStore.authenticationEnabled {
-                removeOverlay()
-            }
-            mainViewController?.onQuickFirePressed()
+            quickFire()
         }
         return true
     }
@@ -196,18 +193,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
         if userActivity.activityType == ActivityTypes.search {
-            handleSearchAction(query: userActivity.userInfo?[ActivityTypes.ParamNames.query] as? String)
-            restorationHandler(nil)
+            handleSearchIntent(query: userActivity.userInfo?[ActivityTypes.ParamNames.query] as? String,
+                               clearData: userActivity.userInfo?[ActivityTypes.ParamNames.clearData] as? Bool ?? false)
             return true
         }
+        
         return false
     }
     
     // MARK: private
 
-    private func handleSearchAction(query: String?) {
-        mainViewController?.newTab(query: query)
+    private func quickFire(completion: (() -> Void)? = nil) {
+        if !privacyStore.authenticationEnabled {
+            removeOverlay()
+        }
+        mainViewController?.onQuickFirePressed(completion: completion)
+    }
+    
+    private func handleSearchIntent(query: String?, clearData: Bool) {
+        
+        let showQuery = {
+            self.mainViewController?.clearNavigationStack()
+            self.autoClear?.applicationWillMoveToForeground()
+            self.mainViewController?.newTab(query: query)
+        }
+        
+        if clearData {
+            quickFire(completion: showQuery)
+        } else {
+            showQuery()
+        }
+        
     }
     
     private func initialiseBackgroundFetch(_ application: UIApplication) {

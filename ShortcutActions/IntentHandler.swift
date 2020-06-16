@@ -23,10 +23,19 @@ class IntentHandler: INExtension {
 
 class PrivateSearchIntentHandler: NSObject, PrivateSearchIntentHandling {
     
+    func resolveClearData(for intent: PrivateSearchIntent, with completion: @escaping (INBooleanResolutionResult) -> Void) {
+        let clearData = intent.clearData as? Bool ?? false
+        print(#function, clearData)
+        completion(.success(with: clearData))
+    }
+    
     func handle(intent: PrivateSearchIntent, completion: @escaping (PrivateSearchIntentResponse) -> Void) {
         print(#function, intent.query ?? "<nil>")
         let activity = NSUserActivity(activityType: ActivityTypes.search)
-        activity.userInfo = [ActivityTypes.ParamNames.query: intent.query as Any]
+        activity.userInfo = [
+            ActivityTypes.ParamNames.query: intent.query as Any,
+            ActivityTypes.ParamNames.clearData: intent.clearData as Any
+        ]
         completion(.init(code: .continueInApp, userActivity: activity))
     }
     

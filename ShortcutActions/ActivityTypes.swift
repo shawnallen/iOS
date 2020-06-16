@@ -15,6 +15,7 @@ struct ActivityTypes {
     struct ParamNames {
         
         static let query = "query"
+        static let clearData = "clearData"
         
     }
     
