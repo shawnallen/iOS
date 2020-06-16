@@ -194,24 +194,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         
-        if userActivity.activityType == ActivityTypes.search {
-            handleSearchIntent(query: userActivity.userInfo?[ActivityTypes.ParamNames.query] as? String,
-                               clearData: userActivity.userInfo?[ActivityTypes.ParamNames.clearData] as? Bool ?? false)
-            return true
+        let clearData = userActivity.userInfo?[ActivityTypes.ParamNames.clearData] as? Bool ?? false
+        
+        switch userActivity.activityType {
+            
+        case ActivityTypes.search:
+            handleSearchIntent(query: userActivity.userInfo?[ActivityTypes.ParamNames.query] as? String, clearData: clearData)
+            
+        case ActivityTypes.openUrls:
+            handleOpenUrlsIntent(urls: userActivity.userInfo?[ActivityTypes.ParamNames.urls] as? [URL] ?? [], clearData: clearData)
+            
+        default: return false
         }
         
-        return false
+        return true
     }
     
     // MARK: private
 
-    private func quickFire(completion: (() -> Void)? = nil) {
-        if !privacyStore.authenticationEnabled {
-            removeOverlay()
+    private func handleOpenUrlsIntent(urls: [URL], clearData: Bool) {
+        guard !urls.isEmpty else { return }
+        
+        let openUrls = {
+            
+            self.mainViewController?.clearNavigationStack()
+            self.autoClear?.applicationWillMoveToForeground()
+            self.mainViewController?.newTab(query: urls.first!.absoluteString)
+
+            urls.dropFirst().forEach {
+                self.mainViewController?.openUrlInBackground($0)
+            }
+            
         }
-        mainViewController?.onQuickFirePressed(completion: completion)
+        
+        if clearData {
+            quickFire(completion: openUrls)
+        } else {
+            openUrls()
+        }
+        
     }
-    
+
     private func handleSearchIntent(query: String?, clearData: Bool) {
         
         let showQuery = {
@@ -226,6 +249,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             showQuery()
         }
         
+    }
+        
+    private func quickFire(completion: (() -> Void)? = nil) {
+        if !privacyStore.authenticationEnabled {
+            removeOverlay()
+        }
+        mainViewController?.onQuickFirePressed(completion: completion)
     }
     
     private func initialiseBackgroundFetch(_ application: UIApplication) {

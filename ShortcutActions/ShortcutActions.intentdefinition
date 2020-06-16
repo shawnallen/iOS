@@ -109,11 +109,11 @@
 					<key>INIntentParameterMetadata</key>
 					<dict>
 						<key>INIntentParameterMetadataFalseDisplayName</key>
-						<string>Yes</string>
+						<string>No</string>
 						<key>INIntentParameterMetadataFalseDisplayNameID</key>
 						<string>usWdFF</string>
 						<key>INIntentParameterMetadataTrueDisplayName</key>
-						<string>No</string>
+						<string>Yes</string>
 						<key>INIntentParameterMetadataTrueDisplayNameID</key>
 						<string>HL6UiE</string>
 					</dict>
@@ -145,43 +145,18 @@
 				<key>INIntentResponseCodes</key>
 				<array>
 					<dict>
-						<key>INIntentResponseCodeConciseFormatString</key>
-						<string>You searched for ${query}</string>
-						<key>INIntentResponseCodeConciseFormatStringID</key>
-						<string>4UopjF</string>
 						<key>INIntentResponseCodeName</key>
 						<string>success</string>
 						<key>INIntentResponseCodeSuccess</key>
 						<true/>
 					</dict>
 					<dict>
-						<key>INIntentResponseCodeConciseFormatString</key>
-						<string>Error searching for ${query}</string>
-						<key>INIntentResponseCodeConciseFormatStringID</key>
-						<string>KB4Ha5</string>
 						<key>INIntentResponseCodeName</key>
 						<string>failure</string>
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
 				<integer>1</integer>
-				<key>INIntentResponseParameters</key>
-				<array>
-					<dict>
-						<key>INIntentResponseParameterDisplayName</key>
-						<string>text</string>
-						<key>INIntentResponseParameterDisplayNameID</key>
-						<string>YHuPXx</string>
-						<key>INIntentResponseParameterDisplayPriority</key>
-						<integer>1</integer>
-						<key>INIntentResponseParameterName</key>
-						<string>query</string>
-						<key>INIntentResponseParameterTag</key>
-						<integer>1</integer>
-						<key>INIntentResponseParameterType</key>
-						<string>String</string>
-					</dict>
-				</array>
 			</dict>
 			<key>INIntentTitle</key>
 			<string>Search Web Privately</string>
@@ -191,6 +166,161 @@
 			<string>Custom</string>
 			<key>INIntentVerb</key>
 			<string>Search</string>
+		</dict>
+		<dict>
+			<key>INIntentCategory</key>
+			<string>information</string>
+			<key>INIntentConfigurable</key>
+			<true/>
+			<key>INIntentDescription</key>
+			<string>Open one or more links in DuckDuckGo</string>
+			<key>INIntentDescriptionID</key>
+			<string>KLPHg1</string>
+			<key>INIntentInput</key>
+			<string>urls</string>
+			<key>INIntentKeyParameter</key>
+			<string>urls</string>
+			<key>INIntentLastParameterTag</key>
+			<integer>5</integer>
+			<key>INIntentManagedParameterCombinations</key>
+			<dict>
+				<key>urls,clearData</key>
+				<dict>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Open ${urls}</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>4HNhww</string>
+					<key>INIntentParameterCombinationUpdatesLinked</key>
+					<true/>
+				</dict>
+			</dict>
+			<key>INIntentName</key>
+			<string>OpenURLs</string>
+			<key>INIntentParameterCombinations</key>
+			<dict>
+				<key>urls,clearData</key>
+				<dict>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Open ${urls}</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>HCUyKy</string>
+				</dict>
+			</dict>
+			<key>INIntentParameters</key>
+			<array>
+				<dict>
+					<key>INIntentParameterDisplayName</key>
+					<string>URL</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>LaKXez</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>1</integer>
+					<key>INIntentParameterName</key>
+					<string>urls</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Open ${urls}?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>RyfQfN</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsMultipleValues</key>
+					<true/>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>5</integer>
+					<key>INIntentParameterType</key>
+					<string>URL</string>
+					<key>INIntentParameterUnsupportedReasons</key>
+					<array>
+						<dict>
+							<key>INIntentParameterUnsupportedReasonCode</key>
+							<string>noUrls</string>
+							<key>INIntentParameterUnsupportedReasonCustom</key>
+							<true/>
+							<key>INIntentParameterUnsupportedReasonFormatString</key>
+							<string>You must specify at least one link</string>
+							<key>INIntentParameterUnsupportedReasonFormatStringID</key>
+							<string>RNDwxr</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>INIntentParameterDisplayName</key>
+					<string>Close tabs and clear data first</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>3HIEKn</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>No</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>EUeiZ9</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>Yes</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>BzrxGq</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>clearData</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Clear tabs and data first?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>Tz1uHT</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>4</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+			</array>
+			<key>INIntentResponse</key>
+			<dict>
+				<key>INIntentResponseCodes</key>
+				<array>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>success</string>
+						<key>INIntentResponseCodeSuccess</key>
+						<true/>
+					</dict>
+					<dict>
+						<key>INIntentResponseCodeName</key>
+						<string>failure</string>
+					</dict>
+				</array>
+			</dict>
+			<key>INIntentTitle</key>
+			<string>Open URLs</string>
+			<key>INIntentTitleID</key>
+			<string>Veq00w</string>
+			<key>INIntentType</key>
+			<string>Custom</string>
+			<key>INIntentVerb</key>
+			<string>Open</string>
 		</dict>
 	</array>
 	<key>INTypes</key>

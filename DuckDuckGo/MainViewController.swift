@@ -665,6 +665,11 @@ class MainViewController: UIViewController {
         currentTab?.findInPage?.delegate = self
         findInPageView.update(with: currentTab?.findInPage, updateTextField: true)
     }
+    
+    func openUrlInBackground(_ url: URL) {
+        _ = tabManager.add(url: url, inBackground: true)
+        animateBackgroundTab()
+    }
         
 }
 
@@ -917,8 +922,7 @@ extension MainViewController: TabDelegate {
     }
 
     func tab(_ tab: TabViewController, didRequestNewBackgroundTabForUrl url: URL) {
-        _ = tabManager.add(url: url, inBackground: true)
-        animateBackgroundTab()
+        openUrlInBackground(url)
     }
 
     func tab(_ tab: TabViewController, didRequestNewTabForUrl url: URL, openedByPage: Bool) {
