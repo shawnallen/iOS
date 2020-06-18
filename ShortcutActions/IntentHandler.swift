@@ -25,13 +25,6 @@ class IntentHandler: INExtension {
 
 class OpenURLsIntentHandler: NSObject, OpenURLsIntentHandling {
     
-    func resolveUrls(for intent: OpenURLsIntent, with completion: @escaping ([OpenURLsUrlsResolutionResult]) -> Void) {
-        print(#function, intent.urls as Any)
-        let urls = intent.urls
-        let result = urls?.map { OpenURLsUrlsResolutionResult.success(with: $0) }
-        completion(result ?? [ OpenURLsUrlsResolutionResult.unsupported(forReason: .noUrls) ])
-    }
-        
     func handle(intent: OpenURLsIntent, completion: @escaping (OpenURLsIntentResponse) -> Void) {
         print(#function, intent.urls ?? "<nil>")
         let activity = NSUserActivity(activityType: ActivityTypes.openUrls)
@@ -40,6 +33,18 @@ class OpenURLsIntentHandler: NSObject, OpenURLsIntentHandling {
             ActivityTypes.ParamNames.clearData: intent.clearData as Any
         ]
         completion(.init(code: .continueInApp, userActivity: activity))
+    }
+
+    func resolveLaunch(for intent: OpenURLsIntent, with completion: @escaping (INBooleanResolutionResult) -> Void) {
+        let launch = intent.launch as? Bool ?? false
+        completion(.success(with: launch))
+    }
+        
+    func resolveUrls(for intent: OpenURLsIntent, with completion: @escaping ([OpenURLsUrlsResolutionResult]) -> Void) {
+        print(#function, intent.urls as Any)
+        let urls = intent.urls
+        let result = urls?.map { OpenURLsUrlsResolutionResult.success(with: $0) }
+        completion(result ?? [ OpenURLsUrlsResolutionResult.unsupported(forReason: .noUrls) ])
     }
     
     func resolveClearData(for intent: OpenURLsIntent, with completion: @escaping (INBooleanResolutionResult) -> Void) {

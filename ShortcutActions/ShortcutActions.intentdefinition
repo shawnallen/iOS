@@ -173,7 +173,7 @@
 			<key>INIntentConfigurable</key>
 			<true/>
 			<key>INIntentDescription</key>
-			<string>Open one or more links in DuckDuckGo</string>
+			<string>Open one or more links in the DuckDuckGo Privacy Browser</string>
 			<key>INIntentDescriptionID</key>
 			<string>KLPHg1</string>
 			<key>INIntentInput</key>
@@ -181,10 +181,10 @@
 			<key>INIntentKeyParameter</key>
 			<string>urls</string>
 			<key>INIntentLastParameterTag</key>
-			<integer>5</integer>
+			<integer>7</integer>
 			<key>INIntentManagedParameterCombinations</key>
 			<dict>
-				<key>urls,clearData</key>
+				<key>urls,clearData,launch</key>
 				<dict>
 					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
 					<true/>
@@ -192,6 +192,17 @@
 					<string>Open ${urls}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>4HNhww</string>
+					<key>INIntentParameterCombinationUpdatesLinked</key>
+					<true/>
+				</dict>
+				<key>urls,launch</key>
+				<dict>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Open ${urls}</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>lCnVtp</string>
 					<key>INIntentParameterCombinationUpdatesLinked</key>
 					<true/>
 				</dict>
@@ -208,6 +219,30 @@
 					<string>Open ${urls}</string>
 					<key>INIntentParameterCombinationTitleID</key>
 					<string>HCUyKy</string>
+				</dict>
+				<key>urls,clearData,launch</key>
+				<dict>
+					<key>INIntentParameterCombinationIsLinked</key>
+					<true/>
+					<key>INIntentParameterCombinationIsPrimary</key>
+					<true/>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Open ${urls}</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>TqVelY</string>
+				</dict>
+				<key>urls,launch</key>
+				<dict>
+					<key>INIntentParameterCombinationIsLinked</key>
+					<true/>
+					<key>INIntentParameterCombinationSupportsBackgroundExecution</key>
+					<true/>
+					<key>INIntentParameterCombinationTitle</key>
+					<string>Open ${urls}</string>
+					<key>INIntentParameterCombinationTitleID</key>
+					<string>dGoU8b</string>
 				</dict>
 			</dict>
 			<key>INIntentParameters</key>
@@ -258,11 +293,51 @@
 				</dict>
 				<dict>
 					<key>INIntentParameterDisplayName</key>
+					<string>Launch app?</string>
+					<key>INIntentParameterDisplayNameID</key>
+					<string>E8ipYO</string>
+					<key>INIntentParameterDisplayPriority</key>
+					<integer>2</integer>
+					<key>INIntentParameterMetadata</key>
+					<dict>
+						<key>INIntentParameterMetadataFalseDisplayName</key>
+						<string>No</string>
+						<key>INIntentParameterMetadataFalseDisplayNameID</key>
+						<string>y0dn9r</string>
+						<key>INIntentParameterMetadataTrueDisplayName</key>
+						<string>Yes</string>
+						<key>INIntentParameterMetadataTrueDisplayNameID</key>
+						<string>W0Q2qp</string>
+					</dict>
+					<key>INIntentParameterName</key>
+					<string>launch</string>
+					<key>INIntentParameterPromptDialogs</key>
+					<array>
+						<dict>
+							<key>INIntentParameterPromptDialogCustom</key>
+							<true/>
+							<key>INIntentParameterPromptDialogFormatString</key>
+							<string>Launch app?</string>
+							<key>INIntentParameterPromptDialogFormatStringID</key>
+							<string>PrVkf8</string>
+							<key>INIntentParameterPromptDialogType</key>
+							<string>Primary</string>
+						</dict>
+					</array>
+					<key>INIntentParameterSupportsResolution</key>
+					<true/>
+					<key>INIntentParameterTag</key>
+					<integer>7</integer>
+					<key>INIntentParameterType</key>
+					<string>Boolean</string>
+				</dict>
+				<dict>
+					<key>INIntentParameterDisplayName</key>
 					<string>Close tabs and clear data first</string>
 					<key>INIntentParameterDisplayNameID</key>
 					<string>3HIEKn</string>
 					<key>INIntentParameterDisplayPriority</key>
-					<integer>2</integer>
+					<integer>3</integer>
 					<key>INIntentParameterMetadata</key>
 					<dict>
 						<key>INIntentParameterMetadataFalseDisplayName</key>
@@ -289,6 +364,15 @@
 							<string>Primary</string>
 						</dict>
 					</array>
+					<key>INIntentParameterRelationship</key>
+					<dict>
+						<key>INIntentParameterRelationshipParentName</key>
+						<string>launch</string>
+						<key>INIntentParameterRelationshipPredicateName</key>
+						<string>BooleanHasExactValue</string>
+						<key>INIntentParameterRelationshipPredicateValue</key>
+						<true/>
+					</dict>
 					<key>INIntentParameterSupportsResolution</key>
 					<true/>
 					<key>INIntentParameterTag</key>
@@ -312,9 +396,32 @@
 						<string>failure</string>
 					</dict>
 				</array>
+				<key>INIntentResponseLastParameterTag</key>
+				<integer>3</integer>
+				<key>INIntentResponseOutput</key>
+				<string>urls</string>
+				<key>INIntentResponseParameters</key>
+				<array>
+					<dict>
+						<key>INIntentResponseParameterDisplayName</key>
+						<string>URL</string>
+						<key>INIntentResponseParameterDisplayNameID</key>
+						<string>rAIJBV</string>
+						<key>INIntentResponseParameterDisplayPriority</key>
+						<integer>1</integer>
+						<key>INIntentResponseParameterName</key>
+						<string>urls</string>
+						<key>INIntentResponseParameterSupportsMultipleValues</key>
+						<true/>
+						<key>INIntentResponseParameterTag</key>
+						<integer>3</integer>
+						<key>INIntentResponseParameterType</key>
+						<string>URL</string>
+					</dict>
+				</array>
 			</dict>
 			<key>INIntentTitle</key>
-			<string>Open URLs</string>
+			<string>Open URL</string>
 			<key>INIntentTitleID</key>
 			<string>Veq00w</string>
 			<key>INIntentType</key>
