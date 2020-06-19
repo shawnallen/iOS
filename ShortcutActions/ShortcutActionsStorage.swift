@@ -12,13 +12,13 @@ import Core
 class ShortcutActionsStorage {
     
     struct Constants {
-        static let groupName = "com.duckduckgo.ShortcutActions"
+        static let groupName = "group.com.duckduckgo.ShortcutActions"
     }
     
     static let shared = ShortcutActionsStorage()
     
     @UserDefaultsWrapper(key: .shortcutActionsOpenUrls, defaultValue: [], group: Constants.groupName)
-    var openUrls: [URL]
+    var openUrls: [String]
     
     private init() {}
     

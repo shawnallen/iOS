@@ -37,7 +37,8 @@ class OpenURLsIntentHandler: NSObject, OpenURLsIntentHandling {
         
         let launch = intent.launch as? Bool ?? false
         if !launch {
-            ShortcutActionsStorage.shared.openUrls += intent.urls ?? []
+            let absoluteUrls = intent.urls?.map({ $0.absoluteString })
+            ShortcutActionsStorage.shared.openUrls += absoluteUrls ?? []
         }
         
         completion(.init(code: launch ? .continueInApp : .success, userActivity: activity))

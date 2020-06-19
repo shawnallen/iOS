@@ -124,6 +124,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if !privacyStore.authenticationEnabled {
             showKeyboardOnLaunch()
         }
+
+        openSavedUrls()
     }
 
     private func showKeyboardOnLaunch() {
@@ -146,15 +148,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         beginAuthentication()
         autoClear?.applicationWillMoveToForeground()
         showKeyboardIfSettingOn = true
-        
-        if !ShortcutActionsStorage.shared.openUrls.isEmpty {
-            let urls = ShortcutActionsStorage.shared.openUrls
-            ShortcutActionsStorage.shared.openUrls = []
-            urls.forEach { url in
-                mainViewController?.loadUrlInNewTab(url)
-            }
-        }
-        
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -220,6 +213,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: private
+    
+    private func openSavedUrls() {
+        guard !ShortcutActionsStorage.shared.openUrls.isEmpty else {
+            return
+        }
+        
+        let urls = ShortcutActionsStorage.shared.openUrls
+        ShortcutActionsStorage.shared.openUrls = []
+        urls.forEach { url in
+            if let url = URL(string: url) {
+                mainViewController?.loadUrlInNewTab(url)
+            }
+        }
+    }
 
     private func handleOpenUrlsIntent(urls: [URL], clearData: Bool) {
         guard !urls.isEmpty else { return }
