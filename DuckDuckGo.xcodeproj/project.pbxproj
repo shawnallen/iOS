@@ -222,6 +222,9 @@
 		85A6D2792496AF2400B2E63A /* ShortcutActions.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 85A6D275249645FF00B2E63A /* ShortcutActions.intentdefinition */; settings = {ATTRIBUTES = (no_codegen, ); }; };
 		85A6D27B2496C70600B2E63A /* ActivityTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A6D27A2496C70600B2E63A /* ActivityTypes.swift */; };
 		85A6D27C2496C70600B2E63A /* ActivityTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A6D27A2496C70600B2E63A /* ActivityTypes.swift */; };
+		85A6D27F249BC28800B2E63A /* ShortcutActionsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A6D27E249BC28800B2E63A /* ShortcutActionsStorage.swift */; };
+		85A6D280249BC4CB00B2E63A /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F143C2E41E4A4CD400CFDE3A /* Core.framework */; };
+		85A6D285249BCA1E00B2E63A /* ShortcutActionsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A6D27E249BC28800B2E63A /* ShortcutActionsStorage.swift */; };
 		85A9C37920E0E00C00073340 /* HomeRow.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85A9C37820E0E00C00073340 /* HomeRow.xcassets */; };
 		85AB24A81FA7449D00896A5F /* PrivacyProtection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85AB24A71FA7449D00896A5F /* PrivacyProtection.storyboard */; };
 		85AE668B209603840014CF04 /* HomeRow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85AE668A209603840014CF04 /* HomeRow.storyboard */; };
@@ -585,6 +588,13 @@
 			remoteGlobalIDString = 85A6D2552496453900B2E63A;
 			remoteInfo = ShortcutActions;
 		};
+		85A6D282249BC4CB00B2E63A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F143C2E31E4A4CD400CFDE3A;
+			remoteInfo = Core;
+		};
 		85F21DB2210F5E32002631A6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
@@ -861,6 +871,7 @@
 		85A6D275249645FF00B2E63A /* ShortcutActions.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = ShortcutActions.intentdefinition; sourceTree = "<group>"; };
 		85A6D27A2496C70600B2E63A /* ActivityTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTypes.swift; sourceTree = "<group>"; };
 		85A6D27D2499316100B2E63A /* ShortcutActions.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShortcutActions.entitlements; sourceTree = "<group>"; };
+		85A6D27E249BC28800B2E63A /* ShortcutActionsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutActionsStorage.swift; sourceTree = "<group>"; };
 		85A9C37820E0E00C00073340 /* HomeRow.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = HomeRow.xcassets; sourceTree = "<group>"; };
 		85AB24A71FA7449D00896A5F /* PrivacyProtection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PrivacyProtection.storyboard; sourceTree = "<group>"; };
 		85AE668A209603840014CF04 /* HomeRow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeRow.storyboard; sourceTree = "<group>"; };
@@ -1249,6 +1260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85A6D280249BC4CB00B2E63A /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1803,6 +1815,7 @@
 				85A6D2582496453900B2E63A /* IntentHandler.swift */,
 				85A6D25A2496453900B2E63A /* Info.plist */,
 				85A6D27A2496C70600B2E63A /* ActivityTypes.swift */,
+				85A6D27E249BC28800B2E63A /* ShortcutActionsStorage.swift */,
 			);
 			path = ShortcutActions;
 			sourceTree = "<group>";
@@ -3020,6 +3033,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				85A6D283249BC4CB00B2E63A /* PBXTargetDependency */,
 			);
 			name = ShortcutActions;
 			productName = ShortcutActions;
@@ -3748,6 +3762,7 @@
 				83004E882193E8C700DA013C /* TabViewControllerLongPressMenuExtension.swift in Sources */,
 				85A6D2792496AF2400B2E63A /* ShortcutActions.intentdefinition in Sources */,
 				98F78B8E22419093007CACF4 /* ThemableNavigationController.swift in Sources */,
+				85A6D285249BCA1E00B2E63A /* ShortcutActionsStorage.swift in Sources */,
 				F1D796EC1E7AB8930019D451 /* SaveBookmarkActivity.swift in Sources */,
 				8531A08E1F9950E6000484F0 /* WhitelistViewController.swift in Sources */,
 				F1D477C61F2126CC0031ED49 /* OmniBarState.swift in Sources */,
@@ -3928,6 +3943,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85A6D27F249BC28800B2E63A /* ShortcutActionsStorage.swift in Sources */,
 				85A6D276249645FF00B2E63A /* ShortcutActions.intentdefinition in Sources */,
 				85A6D2592496453900B2E63A /* IntentHandler.swift in Sources */,
 				85A6D27C2496C70600B2E63A /* ActivityTypes.swift in Sources */,
@@ -4085,6 +4101,11 @@
 			isa = PBXTargetDependency;
 			target = 85A6D2552496453900B2E63A /* ShortcutActions */;
 			targetProxy = 85A6D26C2496453900B2E63A /* PBXContainerItemProxy */;
+		};
+		85A6D283249BC4CB00B2E63A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F143C2E31E4A4CD400CFDE3A /* Core */;
+			targetProxy = 85A6D282249BC4CB00B2E63A /* PBXContainerItemProxy */;
 		};
 		85F21DB3210F5E32002631A6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -4628,7 +4649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ShortcutActions/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -4653,7 +4674,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = ShortcutActions/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.mobile.ios.ShortcutActions;

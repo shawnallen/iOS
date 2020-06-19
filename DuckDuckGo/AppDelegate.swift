@@ -146,6 +146,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         beginAuthentication()
         autoClear?.applicationWillMoveToForeground()
         showKeyboardIfSettingOn = true
+        
+        if !ShortcutActionsStorage.shared.openUrls.isEmpty {
+            let urls = ShortcutActionsStorage.shared.openUrls
+            ShortcutActionsStorage.shared.openUrls = []
+            urls.forEach { url in
+                mainViewController?.loadUrlInNewTab(url)
+            }
+        }
+        
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

@@ -8,6 +8,7 @@
 
 import Intents
 
+@available(iOSApplicationExtension 13.0, *)
 class IntentHandler: INExtension {
     
     override func handler(for intent: INIntent) -> Any {
@@ -23,6 +24,7 @@ class IntentHandler: INExtension {
     
 }
 
+@available(iOSApplicationExtension 13.0, *)
 class OpenURLsIntentHandler: NSObject, OpenURLsIntentHandling {
     
     func handle(intent: OpenURLsIntent, completion: @escaping (OpenURLsIntentResponse) -> Void) {
@@ -32,7 +34,13 @@ class OpenURLsIntentHandler: NSObject, OpenURLsIntentHandling {
             ActivityTypes.ParamNames.urls: intent.urls as Any,
             ActivityTypes.ParamNames.clearData: intent.clearData as Any
         ]
-        completion(.init(code: .continueInApp, userActivity: activity))
+        
+        let launch = intent.launch as? Bool ?? false
+        if !launch {
+            ShortcutActionsStorage.shared.openUrls += intent.urls ?? []
+        }
+        
+        completion(.init(code: launch ? .continueInApp : .success, userActivity: activity))
     }
 
     func resolveLaunch(for intent: OpenURLsIntent, with completion: @escaping (INBooleanResolutionResult) -> Void) {
@@ -41,7 +49,7 @@ class OpenURLsIntentHandler: NSObject, OpenURLsIntentHandling {
     }
         
     func resolveUrls(for intent: OpenURLsIntent, with completion: @escaping ([OpenURLsUrlsResolutionResult]) -> Void) {
-        print(#function, intent.urls as Any)
+        print(#function, intent.urls ?? [])
         let urls = intent.urls
         let result = urls?.map { OpenURLsUrlsResolutionResult.success(with: $0) }
         completion(result ?? [ OpenURLsUrlsResolutionResult.unsupported(forReason: .noUrls) ])
@@ -54,6 +62,7 @@ class OpenURLsIntentHandler: NSObject, OpenURLsIntentHandling {
     
 }
 
+@available(iOSApplicationExtension 13.0, *)
 class PrivateSearchIntentHandler: NSObject, PrivateSearchIntentHandling {
         
     func handle(intent: PrivateSearchIntent, completion: @escaping (PrivateSearchIntentResponse) -> Void) {

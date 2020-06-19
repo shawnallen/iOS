@@ -17,7 +17,7 @@ struct ActivityTypes {
         
         static let query = "query"
         static let clearData = "clearData"
-        static let urls = "urls"
+        static let urls = "URL"
         
     }
     

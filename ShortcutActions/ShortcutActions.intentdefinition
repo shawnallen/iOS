@@ -22,7 +22,7 @@
 			<key>INIntentConfigurable</key>
 			<true/>
 			<key>INIntentDescription</key>
-			<string>Opens a new tab in the DuckDuckGo Privacy Browser and performs a search for the specified text, if any.</string>
+			<string>Opens a new tab in DuckDuckGo Privacy Browser and performs a search for the specified text, if any.</string>
 			<key>INIntentDescriptionID</key>
 			<string>Y2JfGo</string>
 			<key>INIntentInput</key>
@@ -173,7 +173,7 @@
 			<key>INIntentConfigurable</key>
 			<true/>
 			<key>INIntentDescription</key>
-			<string>Open one or more links in the DuckDuckGo Privacy Browser</string>
+			<string>Open one or more links in DuckDuckGo Privacy Browser</string>
 			<key>INIntentDescriptionID</key>
 			<string>KLPHg1</string>
 			<key>INIntentInput</key>
@@ -397,28 +397,7 @@
 					</dict>
 				</array>
 				<key>INIntentResponseLastParameterTag</key>
-				<integer>3</integer>
-				<key>INIntentResponseOutput</key>
-				<string>urls</string>
-				<key>INIntentResponseParameters</key>
-				<array>
-					<dict>
-						<key>INIntentResponseParameterDisplayName</key>
-						<string>URL</string>
-						<key>INIntentResponseParameterDisplayNameID</key>
-						<string>rAIJBV</string>
-						<key>INIntentResponseParameterDisplayPriority</key>
-						<integer>1</integer>
-						<key>INIntentResponseParameterName</key>
-						<string>urls</string>
-						<key>INIntentResponseParameterSupportsMultipleValues</key>
-						<true/>
-						<key>INIntentResponseParameterTag</key>
-						<integer>3</integer>
-						<key>INIntentResponseParameterType</key>
-						<string>URL</string>
-					</dict>
-				</array>
+				<integer>6</integer>
 			</dict>
 			<key>INIntentTitle</key>
 			<string>Open URL</string>

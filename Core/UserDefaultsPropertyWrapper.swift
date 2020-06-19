@@ -45,23 +45,31 @@ public struct UserDefaultsWrapper<T> {
         case daxBrowsingMajorTrackingSiteShown = "com.duckduckgo.ios.daxOnboardingBrowsingMajorTrackingSiteShown"
         case daxBrowsingOwnedByMajorTrackingSiteShown = "com.duckduckgo.ios.daxOnboardingBrowsingOwnedByMajorTrackingSiteShown"
         
+        case shortcutActionsOpenUrls = "com.duckduckgo.ios.shortcutActions.openUrls"
+        
         case legacyCovidInfo = "com.duckduckgo.ios.home.covidInfo"
     }
 
     private let key: Key
     private let defaultValue: T
+    private let group: String?
 
-    public init(key: Key, defaultValue: T) {
+    public init(key: Key, defaultValue: T, group: String? = nil) {
         self.key = key
         self.defaultValue = defaultValue
+        self.group = group
+    }
+    
+    var userDefaults: UserDefaults {
+        return group == nil ? UserDefaults.standard : UserDefaults(suiteName: group)!
     }
 
     public var wrappedValue: T {
         get {
-            return UserDefaults.standard.object(forKey: key.rawValue) as? T ?? defaultValue
+            return userDefaults.object(forKey: key.rawValue) as? T ?? defaultValue
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: key.rawValue)
+            userDefaults.set(newValue, forKey: key.rawValue)
         }
     }
 }
