@@ -13,10 +13,8 @@ class IntentHandler: INExtension {
     
     override func handler(for intent: INIntent) -> Any {
         
-        if intent is PrivateSearchIntent {
-            return PrivateSearchIntentHandler()
-        } else if intent is OpenURLsIntent {
-            return OpenURLsIntentHandler()
+        if intent is OpenTextIntent {
+            return OpenTextIntentHandler()
         }
         
         return self
@@ -25,66 +23,36 @@ class IntentHandler: INExtension {
 }
 
 @available(iOSApplicationExtension 13.0, *)
-class OpenURLsIntentHandler: NSObject, OpenURLsIntentHandling {
+class OpenTextIntentHandler: NSObject, OpenTextIntentHandling {
     
-    func handle(intent: OpenURLsIntent, completion: @escaping (OpenURLsIntentResponse) -> Void) {
-        print(#function, intent.urls ?? "<nil>")
-        let activity = NSUserActivity(activityType: ActivityTypes.openUrls)
+    func handle(intent: OpenTextIntent, completion: @escaping (OpenTextIntentResponse) -> Void) {
+        let activity = NSUserActivity(activityType: ActivityTypes.openText)
         activity.userInfo = [
-            ActivityTypes.ParamNames.urls: intent.urls as Any,
+            ActivityTypes.ParamNames.text: intent.text as Any,
             ActivityTypes.ParamNames.clearData: intent.clearData as Any
         ]
         
         let launch = intent.launch as? Bool ?? false
         if !launch {
-            let absoluteUrls = intent.urls?.map({ $0.absoluteString })
-            ShortcutActionsStorage.shared.openUrls += absoluteUrls ?? []
+            ShortcutActionsStorage.shared.stringsToOpen += intent.text ?? []
         }
         
         completion(.init(code: launch ? .continueInApp : .success, userActivity: activity))
     }
-
-    func resolveLaunch(for intent: OpenURLsIntent, with completion: @escaping (INBooleanResolutionResult) -> Void) {
-        let launch = intent.launch as? Bool ?? false
-        completion(.success(with: launch))
-    }
-        
-    func resolveUrls(for intent: OpenURLsIntent, with completion: @escaping ([OpenURLsUrlsResolutionResult]) -> Void) {
-        print(#function, intent.urls ?? [])
-        let urls = intent.urls
-        let result = urls?.map { OpenURLsUrlsResolutionResult.success(with: $0) }
-        completion(result ?? [ OpenURLsUrlsResolutionResult.unsupported(forReason: .noUrls) ])
+    
+    func resolveLaunch(for intent: OpenTextIntent, with completion: @escaping (INBooleanResolutionResult) -> Void) {
+        completion(.success(with: intent.launch as? Bool ?? false))
     }
     
-    func resolveClearData(for intent: OpenURLsIntent, with completion: @escaping (INBooleanResolutionResult) -> Void) {
-        let clearData = intent.clearData as? Bool ?? false
-        completion(.success(with: clearData))
+    func resolveClearData(for intent: OpenTextIntent, with completion: @escaping (INBooleanResolutionResult) -> Void) {
+        completion(.success(with: intent.clearData as? Bool ?? false))
     }
     
-}
-
-@available(iOSApplicationExtension 13.0, *)
-class PrivateSearchIntentHandler: NSObject, PrivateSearchIntentHandling {
-        
-    func handle(intent: PrivateSearchIntent, completion: @escaping (PrivateSearchIntentResponse) -> Void) {
-        print(#function, intent.query ?? "<nil>")
-        let activity = NSUserActivity(activityType: ActivityTypes.search)
-        activity.userInfo = [
-            ActivityTypes.ParamNames.query: intent.query as Any,
-            ActivityTypes.ParamNames.clearData: intent.clearData as Any
-        ]
-        completion(.init(code: .continueInApp, userActivity: activity))
+    func resolveText(for intent: OpenTextIntent, with completion: @escaping ([OpenTextTextResolutionResult]) -> Void) {
+        let result = intent.text?.map({
+            OpenTextTextResolutionResult.success(with: $0)
+        })
+        completion(result ?? [OpenTextTextResolutionResult.unsupported(forReason: .noUrls)])
     }
-    
-    func resolveClearData(for intent: PrivateSearchIntent, with completion: @escaping (INBooleanResolutionResult) -> Void) {
-        let clearData = intent.clearData as? Bool ?? false
-        print(#function, clearData)
-        completion(.success(with: clearData))
-    }
-    
-    func resolveQuery(for intent: PrivateSearchIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
-        print(#function, intent.query ?? "<nil>")
-        completion(.success(with: intent.query ?? ""))
-    }
-        
+  
 }

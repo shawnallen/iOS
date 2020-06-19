@@ -35,8 +35,7 @@
 				<string>INSearchForMessagesIntent</string>
 				<string>INSendMessageIntent</string>
 				<string>INSetMessageAttributeIntent</string>
-				<string>OpenURLsIntent</string>
-				<string>PrivateSearchIntent</string>
+				<string>OpenTextIntent</string>
 			</array>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>

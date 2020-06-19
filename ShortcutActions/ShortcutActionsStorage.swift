@@ -17,8 +17,8 @@ class ShortcutActionsStorage {
     
     static let shared = ShortcutActionsStorage()
     
-    @UserDefaultsWrapper(key: .shortcutActionsOpenUrls, defaultValue: [], group: Constants.groupName)
-    var openUrls: [String]
+    @UserDefaultsWrapper(key: .shortcutActionsStringsToOpen, defaultValue: [], group: Constants.groupName)
+    var stringsToOpen: [String]
     
     private init() {}
     

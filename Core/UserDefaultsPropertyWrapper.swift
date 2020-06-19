@@ -45,7 +45,7 @@ public struct UserDefaultsWrapper<T> {
         case daxBrowsingMajorTrackingSiteShown = "com.duckduckgo.ios.daxOnboardingBrowsingMajorTrackingSiteShown"
         case daxBrowsingOwnedByMajorTrackingSiteShown = "com.duckduckgo.ios.daxOnboardingBrowsingOwnedByMajorTrackingSiteShown"
         
-        case shortcutActionsOpenUrls = "com.duckduckgo.ios.shortcutActions.openUrls"
+        case shortcutActionsStringsToOpen = "com.duckduckgo.ios.shortcutActions.stringsToOpen"
         
         case legacyCovidInfo = "com.duckduckgo.ios.home.covidInfo"
     }

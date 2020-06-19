@@ -10,14 +10,12 @@ import Foundation
 
 struct ActivityTypes {
     
-    static let search = "com.duckduckgo.mobile.ios.intents.search"
-    static let openUrls = "com.duckduckgo.mobile.ios.intents.openurls"
+    static let openText = "com.duckduckgo.mobile.ios.intents.OpenText"
 
     struct ParamNames {
         
-        static let query = "query"
+        static let text = "text"
         static let clearData = "clearData"
-        static let urls = "URL"
         
     }
     

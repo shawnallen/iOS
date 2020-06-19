@@ -174,8 +174,7 @@
 	<string>Allows you to upload photographs and videos</string>
 	<key>NSUserActivityTypes</key>
 	<array>
-		<string>OpenURLsIntent</string>
-		<string>PrivateSearchIntent</string>
+		<string>OpenTextIntent</string>
 	</array>
 	<key>UIAppFonts</key>
 	<array>

@@ -125,7 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             showKeyboardOnLaunch()
         }
 
-        openSavedUrls()
+        openSavedText()
     }
 
     private func showKeyboardOnLaunch() {
@@ -200,11 +200,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         switch userActivity.activityType {
             
-        case ActivityTypes.search:
-            handleSearchIntent(query: userActivity.userInfo?[ActivityTypes.ParamNames.query] as? String, clearData: clearData)
-            
-        case ActivityTypes.openUrls:
-            handleOpenUrlsIntent(urls: userActivity.userInfo?[ActivityTypes.ParamNames.urls] as? [URL] ?? [], clearData: clearData)
+        case ActivityTypes.openText:
+            handleOpenTextIntent(text: userActivity.userInfo?[ActivityTypes.ParamNames.text] as? [String] ?? [], clearData: clearData)
             
         default: return false
         }
@@ -214,32 +211,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: private
     
-    private func openSavedUrls() {
-        guard !ShortcutActionsStorage.shared.openUrls.isEmpty else {
+    private func openSavedText() {
+        guard !ShortcutActionsStorage.shared.stringsToOpen.isEmpty else {
             return
         }
         
-        let urls = ShortcutActionsStorage.shared.openUrls
-        ShortcutActionsStorage.shared.openUrls = []
-        urls.forEach { url in
-            if let url = URL(string: url) {
-                mainViewController?.loadUrlInNewTab(url)
-            }
-        }
+        let strings = ShortcutActionsStorage.shared.stringsToOpen
+        ShortcutActionsStorage.shared.stringsToOpen = []
+        loadTextItems(strings)
     }
 
-    private func handleOpenUrlsIntent(urls: [URL], clearData: Bool) {
-        guard !urls.isEmpty else { return }
+    private func handleOpenTextIntent(text: [String], clearData: Bool) {
+        guard !text.isEmpty else { return }
         
         let openUrls = {
             
             self.mainViewController?.clearNavigationStack()
             self.autoClear?.applicationWillMoveToForeground()
-            self.mainViewController?.newTab(query: urls.first!.absoluteString)
-
-            urls.dropFirst().forEach {
-                self.mainViewController?.openUrlInBackground($0)
-            }
+            self.loadTextItems(text)
             
         }
         
@@ -250,23 +239,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
-
-    private func handleSearchIntent(query: String?, clearData: Bool) {
+    
+    private func loadTextItems(_ text: [String]) {
+        let appUrls = AppUrls()
         
-        let showQuery = {
-            self.mainViewController?.clearNavigationStack()
-            self.autoClear?.applicationWillMoveToForeground()
-            self.mainViewController?.newTab(query: query)
-        }
+        let urls = text.map({ text -> URL in
+            if text.hasPrefix("https://") || text.hasPrefix("http://") {
+                return URL(string: text) ?? appUrls.url(forQuery: text)
+            }
+            return appUrls.url(forQuery: text)
+        })
         
-        if clearData {
-            quickFire(completion: showQuery)
+        if self.mainViewController?.tabManager.count == 1 && self.mainViewController?.homeController != nil {
+            self.mainViewController?.loadUrl(urls.first!)
         } else {
-            showQuery()
+            self.mainViewController?.loadUrlInNewTab(urls.first!)
         }
-        
+
+        urls.dropFirst().forEach { url in
+            self.mainViewController?.openUrlInBackground(url)
+        }
     }
-        
+    
     private func quickFire(completion: (() -> Void)? = nil) {
         if !privacyStore.authenticationEnabled {
             removeOverlay()
