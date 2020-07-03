@@ -166,9 +166,32 @@ extension WKWebsiteDataStore: WebCacheManagerDataStore {
     }
 
     public func removeAllData(completion: @escaping () -> Void) {
-        removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(),
-                   modifiedSince: Date.distantPast,
-                   completionHandler: completion)
+        
+        fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+            print("***", records.count, "records", records.map { $0.displayName }.joined(separator: ","))
+            
+//            let filteredRecords = records.filter { $0.displayName != "duckduckgo.com" }
+//            print("***", filteredRecords.count, "filtered")
+            self.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), for: records) {
+                self.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+                    print("***", records.count, "records", records.map { $0.displayName }.joined(separator: ","))
+                }
+            }
+            
+//            self.removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(),
+//                       modifiedSince: Date.distantPast) {
+//                self.fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) { records in
+//                    print("***", records.count, "records", records.map { $0.displayName }.joined(separator: ","))
+//                    completion()
+//                }
+//            }
+                        
+        }
+    
+//            removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(),
+//                   modifiedSince: Date.distantPast,
+//                   completionHandler: completion)
+        
     }
     
 }
