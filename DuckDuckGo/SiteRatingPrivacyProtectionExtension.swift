@@ -19,11 +19,13 @@
 
 import Foundation
 import Core
-import PrivacyGrade
+import PrivacyEssentials
+
+typealias PrivacyPracticesSummary = Core.PrivacyPractices.Summary
 
 extension SiteRating {
     
-    static let practicesText: [PrivacyPractices.Summary: String] = [
+    static let practicesText: [PrivacyPracticesSummary: String] = [
         .unknown: UserText.privacyProtectionTOSUnknown,
         .good: UserText.privacyProtectionTOSGood,
         .mixed: UserText.privacyProtectionTOSMixed,
@@ -56,7 +58,7 @@ extension SiteRating {
         return SiteRating.practicesText[privacyPracticesSummary()]
     }
     
-    func privacyPracticesSummary() -> PrivacyPractices.Summary {
+    func privacyPracticesSummary() -> PrivacyPracticesSummary {
         return privacyPractice.summary
     }
     
@@ -97,7 +99,7 @@ extension SiteRating {
         return !contentBlocker.domainWhitelist.contains(domain)
     }
     
-    static let gradeImages: [PrivacyGrade.Grade: UIImage] = [
+    static let gradeImages: [PrivacyEssentials.Grade: UIImage] = [
         .a: #imageLiteral(resourceName: "PP Inline A"),
         .bPlus: #imageLiteral(resourceName: "PP Inline B Plus"),
         .b: #imageLiteral(resourceName: "PP Inline B"),

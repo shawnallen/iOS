@@ -19,11 +19,11 @@
 
 import UIKit
 import Core
-import PrivacyGrade
+import PrivacyEssentials
 
 class PrivacyProtectionHeaderController: UIViewController {
 
-    private static let gradesOn: [PrivacyGrade.Grade: UIImage] = [
+    private static let gradesOn: [PrivacyEssentials.Grade: UIImage] = [
         .a: #imageLiteral(resourceName: "PP Grade A On"),
         .bPlus: #imageLiteral(resourceName: "PP Grade B Plus On"),
         .b: #imageLiteral(resourceName: "PP Grade B On"),
@@ -33,7 +33,7 @@ class PrivacyProtectionHeaderController: UIViewController {
         .dMinus: #imageLiteral(resourceName: "PP Grade D On")
         ]
 
-    private static let gradesOff: [PrivacyGrade.Grade: UIImage] = [
+    private static let gradesOff: [PrivacyEssentials.Grade: UIImage] = [
         .a: #imageLiteral(resourceName: "PP Grade A Off"),
         .bPlus: #imageLiteral(resourceName: "PP Grade B Plus Off"),
         .b: #imageLiteral(resourceName: "PP Grade B Off"),

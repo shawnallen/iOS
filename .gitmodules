@@ -7,6 +7,6 @@
 [submodule "submodules/privacy-grade"]
 	path = submodules/privacy-grade
 	url = https://github.com/duckduckgo/privacy-grade
-[submodule "submodules/privacy-grade-multiplatform"]
-	path = submodules/privacy-grade-multiplatform
-	url = git@dub.duckduckgo.com:duckduckgo/privacy-grade-multiplatform.git
+[submodule "submodules/privacy-essentials-multiplatform"]
+	path = submodules/privacy-essentials-multiplatform
+	url = git@dub.duckduckgo.com:duckduckgo/privacy-essentials-multiplatform.git

@@ -21,7 +21,7 @@ import Foundation
 
 import UIKit
 import Core
-import PrivacyGrade
+import PrivacyEssentials
 
 public class SiteRatingView: UIView {
     
@@ -30,7 +30,7 @@ public class SiteRatingView: UIView {
         case ready
     }
 
-    static let gradeImages: [PrivacyGrade.Grade: UIImage] = [
+    static let gradeImages: [PrivacyEssentials.Grade: UIImage] = [
         .a: #imageLiteral(resourceName: "PP Indicator Grade A"),
         .bPlus: #imageLiteral(resourceName: "PP Indicator Grade B Plus"),
         .b: #imageLiteral(resourceName: "PP Indicator Grade B"),
@@ -72,7 +72,7 @@ public class SiteRatingView: UIView {
         }
         
         let scores = siteRating.scores
-        let grade: PrivacyGrade.Grade
+        let grade: PrivacyEssentials.Grade
         switch mode {
         case .loading:
             circleIndicator.image = PrivacyProtectionIconSource.iconImageTemplate(withString: " ",

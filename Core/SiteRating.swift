@@ -19,7 +19,7 @@
 
 import Foundation
 import os.log
-import PrivacyGrade
+import PrivacyEssentials
 
 public class SiteRating {
 
@@ -35,7 +35,7 @@ public class SiteRating {
         return url.host
     }
 
-    public var scores: PrivacyGrade.Scores {
+    public var scores: PrivacyEssentials.Scores {
         if let scores = cache.get(url: url), scores.site.score > gradeCalculator.scores.site.score {
             return scores
         }
@@ -57,7 +57,7 @@ public class SiteRating {
     private let entity: Entity?
 
     //TODO what about changing Entity to class?
-    class EntityReference: NSObject, PrivacyGrade.Entity {
+    class EntityReference: NSObject, PrivacyEssentials.Entity {
         init?(entity: Entity?) {
             guard let name = entity?.displayName, let prevalence = entity?.prevalence else {
                 return nil
@@ -70,14 +70,14 @@ public class SiteRating {
         let name: String
     }
 
-    class TrackerReference: NSObject, PrivacyGrade.Tracker {
+    class TrackerReference: NSObject, PrivacyEssentials.Tracker {
         init(entityReference: EntityReference) {
             self.entityReference = entityReference
         }
 
         let entityReference: EntityReference
 
-        var entity: PrivacyGrade.Entity { return entityReference }
+        var entity: PrivacyEssentials.Entity { return entityReference }
     }
 
     public init(url: URL,
@@ -104,7 +104,7 @@ public class SiteRating {
         //  then we assume auto upgrade is available for the purpose of grade scoring.
         gradeCalculator = GradeCalculator(https: url.isHttps(),
                                           httpsAutoUpgrade: url.isHttps(),
-                                          privacyPracticesScore: KotlinLong(integerLiteral: privacyPractice.score),
+                                          privacyPractices: nil, //TODO update practices
                                           parentEntity: entityReference)
     }
     

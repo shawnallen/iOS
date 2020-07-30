@@ -20,6 +20,7 @@
 		830C37631F6C482E00E317A7 /* TermsOfServiceListParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830C37621F6C482E00E317A7 /* TermsOfServiceListParser.swift */; };
 		830C37671F6C4A6200E317A7 /* TermsOfServiceParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830C37651F6C4A1D00E317A7 /* TermsOfServiceParserTests.swift */; };
 		83134D7D20E2D725006CE65D /* FeedbackSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83134D7C20E2D725006CE65D /* FeedbackSender.swift */; };
+		831AB68424D365D200CAC28B /* PrivacyEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3B9BDC2477DE7F00C52A73 /* PrivacyEssentials.framework */; };
 		8328AAAF212A3AE900293140 /* HashExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8328AAAE212A3AE900293140 /* HashExtension.swift */; };
 		8328AAB4212A3D7C00293140 /* BloomFilter.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 8328AAB2212A3D7C00293140 /* BloomFilter.hpp */; };
 		8328AAB5212A3D7C00293140 /* BloomFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8328AAB3212A3D7C00293140 /* BloomFilter.cpp */; };
@@ -353,8 +354,8 @@
 		98FA4BB52440AA1A00894CD8 /* TrackersAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA4BB42440AA1A00894CD8 /* TrackersAnimator.swift */; };
 		98FA4BB72440D0A800894CD8 /* PrivacyProtectionIconSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FA4BB62440D0A800894CD8 /* PrivacyProtectionIconSource.swift */; };
 		98FD3E2823A3010C005ABD42 /* ios12-home-row.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 98FD3E2723A3010C005ABD42 /* ios12-home-row.mp4 */; };
-		AA3B9BE32477DE8000C52A73 /* PrivacyGrade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */; };
-		AA3B9BE42477DE8000C52A73 /* PrivacyGrade.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AA3B9BE32477DE8000C52A73 /* PrivacyEssentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3B9BDC2477DE7F00C52A73 /* PrivacyEssentials.framework */; };
+		AA3B9BE42477DE8000C52A73 /* PrivacyEssentials.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AA3B9BDC2477DE7F00C52A73 /* PrivacyEssentials.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA3D854523D9942200788410 /* AppIconSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D854423D9942200788410 /* AppIconSettingsViewController.swift */; };
 		AA3D854723D9E88E00788410 /* AppIconSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D854623D9E88E00788410 /* AppIconSettingsCell.swift */; };
 		AA3D854923DA1DFB00788410 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3D854823DA1DFB00788410 /* AppIcon.swift */; };
@@ -527,6 +528,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		831AB68524D365D200CAC28B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA3B9BDB2477DE7F00C52A73;
+			remoteInfo = PrivacyEssentials;
+		};
 		83491190217F491200610F35 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84E3418A1E2F7EFB00BDBA6F /* Project object */;
@@ -645,7 +653,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F143C2EC1E4A4CD400CFDE3A /* Core.framework in Embed Frameworks */,
-				AA3B9BE42477DE8000C52A73 /* PrivacyGrade.framework in Embed Frameworks */,
+				AA3B9BE42477DE8000C52A73 /* PrivacyEssentials.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1012,8 +1020,8 @@
 		98FA4BB42440AA1A00894CD8 /* TrackersAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackersAnimator.swift; sourceTree = "<group>"; };
 		98FA4BB62440D0A800894CD8 /* PrivacyProtectionIconSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyProtectionIconSource.swift; sourceTree = "<group>"; };
 		98FD3E2723A3010C005ABD42 /* ios12-home-row.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ios12-home-row.mp4"; sourceTree = "<group>"; };
-		AA3B9BC52476FF6A00C52A73 /* privacy-grade-multiplatform */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "privacy-grade-multiplatform"; path = "submodules/privacy-grade-multiplatform"; sourceTree = SOURCE_ROOT; };
-		AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrivacyGrade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA3B9BC52476FF6A00C52A73 /* privacy-essentials-multiplatform */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = folder; name = "privacy-essentials-multiplatform"; path = "submodules/privacy-essentials-multiplatform"; sourceTree = SOURCE_ROOT; };
+		AA3B9BDC2477DE7F00C52A73 /* PrivacyEssentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PrivacyEssentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA3D854423D9942200788410 /* AppIconSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsViewController.swift; sourceTree = "<group>"; };
 		AA3D854623D9E88E00788410 /* AppIconSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconSettingsCell.swift; sourceTree = "<group>"; };
 		AA3D854823DA1DFB00788410 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
@@ -1245,12 +1253,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831AB68424D365D200CAC28B /* PrivacyEssentials.framework in Frameworks */,
 				851B12A1222440D1004781BC /* EasyTipView.framework in Frameworks */,
 				85371D262121BA2800920548 /* Lottie.framework in Frameworks */,
 				F143C2EB1E4A4CD400CFDE3A /* Core.framework in Frameworks */,
 				F17BA43D1F1CD99800460FFA /* Device.framework in Frameworks */,
 				F17BA43E1F1CD99800460FFA /* Kingfisher.framework in Frameworks */,
-				AA3B9BE32477DE8000C52A73 /* PrivacyGrade.framework in Frameworks */,
+				AA3B9BE32477DE8000C52A73 /* PrivacyEssentials.framework in Frameworks */,
 				F17BA4401F1CD99800460FFA /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1363,7 +1372,7 @@
 		8328AAB0212A3D4F00293140 /* Third-Party */ = {
 			isa = PBXGroup;
 			children = (
-				AA3B9BC52476FF6A00C52A73 /* privacy-grade-multiplatform */,
+				AA3B9BC52476FF6A00C52A73 /* privacy-essentials-multiplatform */,
 				8328AAB1212A3D6800293140 /* bloom_cpp */,
 			);
 			path = "Third-Party";
@@ -1595,7 +1604,7 @@
 				83491187217F491200610F35 /* BookmarksTodayExtension.appex */,
 				98A54A8122AFCB2C00E541F4 /* Instruments.instrdst */,
 				85482D882462DCD100EDEDD1 /* OpenAction.appex */,
-				AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */,
+				AA3B9BDC2477DE7F00C52A73 /* PrivacyEssentials.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3025,6 +3034,7 @@
 				837094392142C4C200A58838 /* PBXTargetDependency */,
 				83491191217F491200610F35 /* PBXTargetDependency */,
 				85482D932462DCD100EDEDD1 /* PBXTargetDependency */,
+				831AB68624D365D200CAC28B /* PBXTargetDependency */,
 			);
 			name = DuckDuckGo;
 			productName = DuckDuckGo;
@@ -3137,9 +3147,9 @@
 			productReference = 98A54A8122AFCB2C00E541F4 /* Instruments.instrdst */;
 			productType = "com.apple.product-type.instruments-package";
 		};
-		AA3B9BDB2477DE7F00C52A73 /* PrivacyGrade */ = {
+		AA3B9BDB2477DE7F00C52A73 /* PrivacyEssentials */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AA3B9BE52477DE8000C52A73 /* Build configuration list for PBXNativeTarget "PrivacyGrade" */;
+			buildConfigurationList = AA3B9BE52477DE8000C52A73 /* Build configuration list for PBXNativeTarget "PrivacyEssentials" */;
 			buildPhases = (
 				AA3B9BEA2477DF7900C52A73 /* Compile with Gradle */,
 				AA3B9BEB2477E7F300C52A73 /* Copy to Build folder */,
@@ -3148,9 +3158,9 @@
 			);
 			dependencies = (
 			);
-			name = PrivacyGrade;
+			name = PrivacyEssentials;
 			productName = PrivacyGrade;
-			productReference = AA3B9BDC2477DE7F00C52A73 /* PrivacyGrade.framework */;
+			productReference = AA3B9BDC2477DE7F00C52A73 /* PrivacyEssentials.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		F143C2E31E4A4CD400CFDE3A /* Core */ = {
@@ -3327,7 +3337,7 @@
 				8512BCB220612E500085E862 /* UITests */,
 				98A54A8022AFCB2C00E541F4 /* Instruments */,
 				85482D872462DCD100EDEDD1 /* OpenAction */,
-				AA3B9BDB2477DE7F00C52A73 /* PrivacyGrade */,
+				AA3B9BDB2477DE7F00C52A73 /* PrivacyEssentials */,
 			);
 		};
 /* End PBXProject section */
@@ -3684,7 +3694,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"Compiling PrivacyGrade.framework with Gradle\"\ncd submodules/privacy-grade-multiplatform\n./gradlew $GRADLE_TASK\n";
+			shellScript = "echo \"Compiling PrivacyEssentials.framework with Gradle\"\ncd submodules/privacy-essentials-multiplatform\n./gradlew $GRADLE_TASK\n";
 		};
 		AA3B9BEB2477E7F300C52A73 /* Copy to Build folder */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3702,7 +3712,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"Copying PrivacyGrade.framework\"\ncd submodules/privacy-grade-multiplatform\ncp -rf $GRADLE_OUTPUT_PATH/PrivacyGrade.framework $BUILT_PRODUCTS_DIR/\nif [ -e $GRADLE_OUTPUT_PATH/PrivacyGrade.framework.dSYM ]; then\n    cp -rf $GRADLE_OUTPUT_PATH/PrivacyGrade.framework.dSYM $BUILT_PRODUCTS_DIR/\nfi\n";
+			shellScript = "echo \"Copying PrivacyEssentials.framework\"\ncd submodules/privacy-essentials-multiplatform\ncp -rf $GRADLE_OUTPUT_PATH/PrivacyEssentials.framework $BUILT_PRODUCTS_DIR/\nif [ -e $GRADLE_OUTPUT_PATH/PrivacyEssentials.framework.dSYM ]; then\n    cp -rf $GRADLE_OUTPUT_PATH/PrivacyEssentials.framework.dSYM $BUILT_PRODUCTS_DIR/\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		F17843E61F361B3C00390DCD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -4209,6 +4220,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		831AB68624D365D200CAC28B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA3B9BDB2477DE7F00C52A73 /* PrivacyEssentials */;
+			targetProxy = 831AB68524D365D200CAC28B /* PBXContainerItemProxy */;
+		};
 		83491191217F491200610F35 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 83491186217F491200610F35 /* BookmarksTodayExtension */;
@@ -4261,7 +4277,7 @@
 		};
 		AA3B9BE92477DF6400C52A73 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AA3B9BDB2477DE7F00C52A73 /* PrivacyGrade */;
+			target = AA3B9BDB2477DE7F00C52A73 /* PrivacyEssentials */;
 			targetProxy = AA3B9BE82477DF6400C52A73 /* PBXContainerItemProxy */;
 		};
 		F143C2EA1E4A4CD400CFDE3A /* PBXTargetDependency */ = {
@@ -5028,7 +5044,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.PrivacyGrade;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.PrivacyEssentials;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5065,7 +5081,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.PrivacyGrade;
+				PRODUCT_BUNDLE_IDENTIFIER = com.duckduckgo.PrivacyEssentials;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -5253,7 +5269,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AA3B9BE52477DE8000C52A73 /* Build configuration list for PBXNativeTarget "PrivacyGrade" */ = {
+		AA3B9BE52477DE8000C52A73 /* Build configuration list for PBXNativeTarget "PrivacyEssentials" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AA3B9BE62477DE8000C52A73 /* Debug */,
