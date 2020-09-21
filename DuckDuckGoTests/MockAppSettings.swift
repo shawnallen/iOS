@@ -27,5 +27,6 @@ class MockAppSettings: AppSettings {
     var autoClearAction: AutoClearSettingsModel.Action = []
     var allowUniversalLinks: Bool = true
     var longPressPreviews: Bool = true
+    var reuseTabs: Bool = false
     
 }

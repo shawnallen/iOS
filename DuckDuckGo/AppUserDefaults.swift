@@ -44,6 +44,7 @@ public class AppUserDefaults: AppSettings {
         static let notificationsEnabled = "com.duckduckgo.app.notificationsEnabled"
         static let allowUniversalLinks = "com.duckduckgo.app.allowUniversalLinks"
         static let longPressPreviews = "com.duckduckgo.app.longPressPreviews"
+        static let reuseTabs = "com.duckduckgo.app.reuseTabs"
     }
 
     private var userDefaults: UserDefaults? {
@@ -135,6 +136,16 @@ public class AppUserDefaults: AppSettings {
 
         set {
             userDefaults?.set(newValue, forKey: Keys.longPressPreviews)
+        }
+    }
+    
+    var reuseTabs: Bool {
+        get {
+            return userDefaults?.object(forKey: Keys.reuseTabs) as? Bool ?? false
+        }
+
+        set {
+            userDefaults?.set(newValue, forKey: Keys.reuseTabs)
         }
     }
     

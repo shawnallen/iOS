@@ -25,6 +25,8 @@ protocol AppSettings: AnyObject {
     var autoClearTiming: AutoClearSettingsModel.Timing { get set }
 
     var longPressPreviews: Bool { get set }
+    
+    var reuseTabs: Bool { get set }
 
     var allowUniversalLinks: Bool { get set }
 

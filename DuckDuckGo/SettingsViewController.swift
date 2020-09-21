@@ -35,6 +35,7 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var versionText: UILabel!
     @IBOutlet weak var openUniversalLinksToggle: UISwitch!
     @IBOutlet weak var longPressPreviewsToggle: UISwitch!
+    @IBOutlet weak var reuseTabsToggle: UISwitch!
     @IBOutlet weak var rememberLoginsCell: UITableViewCell!
     @IBOutlet weak var rememberLoginsAccessoryText: UILabel!
 
@@ -72,6 +73,7 @@ class SettingsViewController: UITableViewController {
         configureVersionText()
         configureUniversalLinksToggle()
         configureLinkPreviewsToggle()
+        configureReuseTabsToggle()
         configureRememberLogins()
 
         applyTheme(ThemeManager.shared.currentTheme)
@@ -191,6 +193,10 @@ class SettingsViewController: UITableViewController {
         }
         longPressPreviewsToggle.isOn = appSettings.longPressPreviews
     }
+    
+    private func configureReuseTabsToggle() {
+        reuseTabsToggle.isOn = appSettings.reuseTabs
+    }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -275,6 +281,10 @@ class SettingsViewController: UITableViewController {
         appSettings.autocomplete = sender.isOn
     }
     
+    @IBAction func onReuseTabsToggled(_ sender: UISwitch) {
+        appSettings.reuseTabs = sender.isOn
+    }
+    
     @IBAction func onAllowUniversalLinksToggled(_ sender: UISwitch) {
         appSettings.allowUniversalLinks = sender.isOn
     }
@@ -305,6 +315,7 @@ extension SettingsViewController: Themable {
         authenticationToggle.onTintColor = theme.buttonTintColor
         openUniversalLinksToggle.onTintColor = theme.buttonTintColor
         longPressPreviewsToggle.onTintColor = theme.buttonTintColor
+        reuseTabsToggle.onTintColor = theme.buttonTintColor
         
         tableView.backgroundColor = theme.backgroundColor
         tableView.separatorColor = theme.tableCellSeparatorColor

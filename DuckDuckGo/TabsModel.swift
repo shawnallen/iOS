@@ -146,7 +146,13 @@ public class TabsModel: NSObject, NSCoding {
     func indexOf(tab: Tab) -> Int? {
         return tabs.firstIndex { $0 === tab }
     }
-
+    
+    func tabEquivalent(to tab: Tab) -> Tab? {
+        return tabs.first { (otherTab) -> Bool in
+            return tab.link?.url == otherTab.link?.url
+        }
+    }
+    
     func clearAll() {
         tabs.removeAll()
         tabs.append(Tab())

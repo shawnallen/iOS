@@ -24,6 +24,8 @@ import os.log
 class TabManager {
 
     private(set) var model: TabsModel
+
+    private lazy var appSettings = AppDependencyProvider.shared.appSettings
     
     private var tabControllerCache = [TabViewController]()
 
@@ -145,6 +147,15 @@ class TabManager {
         let link = url == nil ? nil : Link(title: nil, url: url!)
         let tab = Tab(link: link)
         tab.viewed = !inBackground
+        
+        if appSettings.reuseTabs {
+            if let existingTab = model.tabEquivalent(to: tab), let controller = controller(for: existingTab) {
+                model.select(tabAt: model.indexOf(tab: existingTab)!)
+                save()
+                return controller
+            }
+        }
+        
         let controller = buildController(forTab: tab, url: url)
         tabControllerCache.append(controller)
 
